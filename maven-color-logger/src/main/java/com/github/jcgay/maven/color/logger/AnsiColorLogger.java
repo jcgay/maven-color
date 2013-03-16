@@ -4,10 +4,12 @@ import com.google.common.annotations.VisibleForTesting;
 import org.apache.maven.Maven;
 import org.codehaus.plexus.logging.AbstractLogger;
 import org.codehaus.plexus.logging.Logger;
+import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import java.io.PrintStream;
 
+import static org.fusesource.jansi.Ansi.Color.GREEN;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
 import static org.fusesource.jansi.Ansi.ansi;
@@ -16,6 +18,13 @@ import static org.fusesource.jansi.Ansi.ansi;
  * User: jcgay
  */
 public class AnsiColorLogger extends AbstractLogger {
+
+    static interface Message {
+        String SUCCESS = "SUCCESS";
+        String FAILURE = "FAILURE";
+        String BUILD_SUCCESS = "BUILD " + SUCCESS;
+        String BUILD_FAILURE = "BUILD " + FAILURE;
+    }
 
     private PrintStream out;
 
@@ -49,7 +58,7 @@ public class AnsiColorLogger extends AbstractLogger {
     public void info(String message, Throwable throwable) {
         if (isInfoEnabled()) {
             out.print(INFO);
-            out.println(message);
+            out.println(colorizeMessage(message));
             printStackTrace(throwable);
         }
     }
@@ -63,7 +72,7 @@ public class AnsiColorLogger extends AbstractLogger {
 
     public void error(String message, Throwable throwable) {
         if (isErrorEnabled()) {
-            out.println(ansi().fgBright(RED).bold().a(ERROR).a(message).reset());
+            out.println(ansi().fgBright(RED).a(ERROR).a(message).reset());
             printStackTrace(throwable);
         }
     }
@@ -83,5 +92,28 @@ public class AnsiColorLogger extends AbstractLogger {
         if (throwable != null) {
             throwable.printStackTrace(out);
         }
+    }
+
+    private String colorizeMessage(String message) {
+        if (message == null || message.isEmpty()) {
+            return message;
+        }
+        if (message.contains(Message.BUILD_SUCCESS)) {
+            return statusMessage(message, Message.BUILD_SUCCESS, GREEN);
+        }
+        if (message.contains(Message.BUILD_FAILURE)) {
+            return statusMessage(message, Message.BUILD_FAILURE, RED);
+        }
+        if (message.contains(Message.SUCCESS)) {
+            return statusMessage(message, Message.SUCCESS, GREEN);
+        }
+        if (message.contains(Message.FAILURE)) {
+            return statusMessage(message, Message.FAILURE, RED);
+        }
+        return message;
+    }
+
+    private String statusMessage(String message, String toReplace, Ansi.Color color) {
+        return message.replace(toReplace, ansi().fgBright(color).bold().a(toReplace).reset().toString());
     }
 }

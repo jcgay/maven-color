@@ -2,6 +2,7 @@ package com.github.jcgay.maven.color.logger;
 
 import org.codehaus.plexus.logging.Logger;
 import org.fest.assertions.api.Assertions;
+import org.fusesource.jansi.Ansi;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
+import static com.github.jcgay.maven.color.logger.AnsiColorLogger.Message;
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fusesource.jansi.Ansi.Color;
+import static org.fusesource.jansi.Ansi.ansi;
 
 /**
  * User: jcgay
@@ -55,7 +59,7 @@ public class AnsiColorLoggerTest {
 
         logger.error("text in red");
 
-        assertThat(result.toString()).isEqualTo("\u001B[91;1m[ERROR] text in red\u001B[m\n");
+        assertThat(result.toString()).isEqualTo("\u001B[91m[ERROR] text in red\u001B[m\n");
     }
 
     @Test
@@ -148,5 +152,45 @@ public class AnsiColorLoggerTest {
         logger.fatalError("message");
 
         assertThat(result.toString()).doesNotContain("message");
+    }
+
+    @Test
+    public void should_log_build_status_success_in_green() throws Exception {
+
+        logger.info(Message.BUILD_SUCCESS);
+
+        assertThat(result.toString()).contains(ansi().fgBright(Color.GREEN).bold().a(Message.BUILD_SUCCESS).reset().toString());
+    }
+
+    @Test
+    public void should_log_build_status_failure_in_red() throws Exception {
+
+        logger.info(Message.BUILD_FAILURE);
+
+        assertThat(result.toString()).contains(ansi().fgBright(Color.RED).bold().a(Message.BUILD_FAILURE).reset().toString());
+    }
+
+    @Test
+    public void should_log_reactor_summary_success_in_green() throws Exception {
+
+        logger.info(Message.SUCCESS);
+
+        assertThat(result.toString()).contains(ansi().fgBright(Color.GREEN).bold().a(Message.SUCCESS).reset().toString());
+    }
+
+    @Test
+    public void should_log_reactor_summary_failure_in_green() throws Exception {
+
+        logger.info(Message.FAILURE);
+
+        assertThat(result.toString()).contains(ansi().fgBright(Color.RED).bold().a(Message.FAILURE).reset().toString());
+    }
+
+    @Test
+    public void should_throw_npe_when_message_to_log_is_null() throws Exception {
+
+        logger.info(null);
+
+        assertThat(result.toString()).isNotEmpty();
     }
 }
