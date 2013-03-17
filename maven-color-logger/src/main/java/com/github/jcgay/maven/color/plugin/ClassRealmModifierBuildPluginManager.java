@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * User: jcgay
+ * Replace default Maven implementation by adding "maven-color-logger" jar into plugin classloader.
  */
 @Component(role = BuildPluginManager.class)
 public class ClassRealmModifierBuildPluginManager extends DefaultBuildPluginManager {

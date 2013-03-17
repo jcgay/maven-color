@@ -9,7 +9,7 @@ import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
 /**
- * User: jcgay
+ * Java agent to rewrite some part of Maven logging initialization.
  */
 public class ChangeMavenLogger {
 
@@ -17,6 +17,13 @@ public class ChangeMavenLogger {
         inst.addTransformer(new ReplaceMavenLoggerWithAnsiLogger(), true);
     }
 
+    /**
+     * Rewrite classes:
+     * <ul>
+     *     <li>Maven : MavenCli#setupLogger</li>
+     *     <li>Surefire : DefaultReporterFactory#createConsoleLogger</li>
+     * </ul>
+     */
     private static class ReplaceMavenLoggerWithAnsiLogger implements ClassFileTransformer {
 
         public byte[] transform(ClassLoader classLoader, String s, Class<?> aClass, ProtectionDomain protectionDomain, byte[] bytes) throws IllegalClassFormatException {

@@ -6,9 +6,6 @@ import java.net.URL;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-/**
- * User: jcgay
- */
 public class ClassRealmModifierBuildPluginManagerTest {
 
     private ClassRealmModifierBuildPluginManager manager = new ClassRealmModifierBuildPluginManager();

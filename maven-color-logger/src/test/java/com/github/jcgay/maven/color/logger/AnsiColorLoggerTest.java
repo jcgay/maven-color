@@ -12,9 +12,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fusesource.jansi.Ansi.Color;
 import static org.fusesource.jansi.Ansi.ansi;
 
-/**
- * User: jcgay
- */
 public class AnsiColorLoggerTest {
 
     private AnsiColorLogger logger;

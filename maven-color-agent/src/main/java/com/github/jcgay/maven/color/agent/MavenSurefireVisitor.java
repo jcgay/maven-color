@@ -4,9 +4,6 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-/**
- * User: jcgay
- */
 public class MavenSurefireVisitor extends ClassVisitor {
 
     public MavenSurefireVisitor(ClassVisitor cv) {
@@ -27,6 +24,9 @@ public class MavenSurefireVisitor extends ClassVisitor {
         super.visitEnd();
     }
 
+    /**
+     * Method to instantiate a AnsiColorConsoleLogger instead of DefaultDirectConsoleReporter.
+     */
     private void createConsolorLoggerMethod() {
         MethodVisitor mv = cv.visitMethod(Opcodes.ACC_PRIVATE, "createConsoleLogger", "()Lorg/apache/maven/surefire/report/DefaultDirectConsoleReporter;", null, null);
         mv.visitCode();

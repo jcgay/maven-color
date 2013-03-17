@@ -5,9 +5,6 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-/**
-* User: jcgay
-*/
 class MavenCliVisitor extends ClassVisitor {
 
     public MavenCliVisitor(ClassWriter writer) {
@@ -33,6 +30,9 @@ class MavenCliVisitor extends ClassVisitor {
         super.visitEnd();
     }
 
+    /**
+     * Method to instantiate a AnsiColorLogger and set log threshold.
+     */
     private void createSetupAnsiColorLoggerMethod() {
         MethodVisitor mv = cv.visitMethod(Opcodes.ACC_PRIVATE, "setupLogger", "(Lorg/apache/maven/cli/MavenCli$CliRequest;)Lorg/codehaus/plexus/logging/Logger;", null, null);
         mv.visitCode();
@@ -51,6 +51,9 @@ class MavenCliVisitor extends ClassVisitor {
         mv.visitEnd();
     }
 
+    /**
+     * Update previous #setupLogger calls. Return type has changed.
+     */
     private static class RenameCallToSetupLoggerVisitor extends MethodVisitor {
 
         public RenameCallToSetupLoggerVisitor(MethodVisitor mv) {

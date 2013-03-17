@@ -13,7 +13,7 @@ import static org.fusesource.jansi.Ansi.Color;
 import static org.fusesource.jansi.Ansi.ansi;
 
 /**
- * User: jcgay
+ * Modify Test summary display by colorizing test count (Error/Failure : RED, Skipped : YELLOW, Total : BOLD). <br />
  */
 public class AnsiColorConsoleLogger extends DefaultDirectConsoleReporter {
 

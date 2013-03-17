@@ -13,7 +13,19 @@ import static org.fusesource.jansi.Ansi.Color.*;
 import static org.fusesource.jansi.Ansi.ansi;
 
 /**
- * User: jcgay
+ * Add color based on message level:
+ * <ul>
+ *     <li>Fatal : RED</li>
+ *     <li>Error : RED</li>
+ *     <li>Warning : YELLOW</li>
+ *     <li>Info : untouched</li>
+ *     <li>Debug : untouched</li>
+ * </ul>
+ * Colorize some specific messages:
+ * <ul>
+ *     <li>(BUILD) SUCCESS : GREEN</li>
+ *     <li>(BUILD) FAILURE : RED</li>
+ * </ul>
  */
 public class AnsiColorLogger extends AbstractLogger {
 
