@@ -27,6 +27,13 @@ public class ChangeMavenLogger {
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
+            if (s.equals("org/apache/maven/plugin/surefire/report/DefaultReporterFactory")) {
+                ClassReader reader = new ClassReader(bytes);
+                ClassWriter writer = new ClassWriter(reader, 0);
+                MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer);
+                reader.accept(visitor, 0);
+                return writer.toByteArray();
+            }
 
             return null;
         }
