@@ -105,7 +105,7 @@ public class AnsiColorLogger extends AbstractLogger {
     }
 
     private String colorizeMessage(String message) {
-        if (message == null || message.isEmpty()) {
+        if (message == null || "".equals(message)) {
             return message;
         }
         if (message.contains(Message.BUILD_SUCCESS)) {
