@@ -8,6 +8,8 @@ import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
 
+import static com.github.jcgay.maven.color.agent.MavenSurefireVisitor.Version;
+
 /**
  * Java agent to rewrite some part of Maven logging initialization.
  */
@@ -21,7 +23,8 @@ public class ChangeMavenLogger {
      * Rewrite classes:
      * <ul>
      *     <li>Maven : MavenCli#setupLogger</li>
-     *     <li>Surefire : DefaultReporterFactory#createConsoleLogger</li>
+     *     <li>Surefire 2.13 : DefaultReporterFactory#createConsoleLogger</li>
+     *     <li>Surefire 2.9 : FileReporterFactory#createConsoleLogger</li>
      * </ul>
      */
     private static class ReplaceMavenLoggerWithAnsiLogger implements ClassFileTransformer {
@@ -38,7 +41,14 @@ public class ChangeMavenLogger {
             if (s.equals("org/apache/maven/plugin/surefire/report/DefaultReporterFactory")) {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
-                MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer);
+                MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer, Version.SUREFIRE_2_13);
+                reader.accept(visitor, 0);
+                return writer.toByteArray();
+            }
+            if (s.equals("org/apache/maven/plugin/surefire/report/FileReporterFactory")) {
+                ClassReader reader = new ClassReader(bytes);
+                ClassWriter writer = new ClassWriter(reader, 0);
+                MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer, Version.SUREFIRE_2_9);
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
