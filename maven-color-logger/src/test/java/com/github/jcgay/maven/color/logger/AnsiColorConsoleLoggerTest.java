@@ -1,7 +1,5 @@
 package com.github.jcgay.maven.color.logger;
 
-import org.fest.assertions.api.Assertions;
-import org.fusesource.jansi.Ansi;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,9 +7,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static com.github.jcgay.maven.color.logger.AnsiColorConsoleLogger.Message;
-import static org.fusesource.jansi.Ansi.Color;
-import  static org.fusesource.jansi.Ansi.ansi;
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fusesource.jansi.Ansi.Color;
+import static org.fusesource.jansi.Ansi.ansi;
 
 /**
  * User: jcgay

@@ -1,6 +1,5 @@
 package com.github.jcgay.maven.color.plugin;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 import java.net.URL;

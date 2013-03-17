@@ -1,13 +1,10 @@
 package com.github.jcgay.maven.color.logger;
 
 import org.codehaus.plexus.logging.Logger;
-import org.fest.assertions.api.Assertions;
-import org.fusesource.jansi.Ansi;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
 import static com.github.jcgay.maven.color.logger.AnsiColorLogger.Message;
