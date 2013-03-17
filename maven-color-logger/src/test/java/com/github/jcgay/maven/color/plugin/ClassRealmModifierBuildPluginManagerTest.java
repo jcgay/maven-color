@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.net.URL;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.fest.assertions.Assertions.assertThat;
 
 public class ClassRealmModifierBuildPluginManagerTest {
 
