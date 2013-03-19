@@ -16,7 +16,9 @@ import static com.github.jcgay.maven.color.agent.MavenSurefireVisitor.Version;
 public class ChangeMavenLogger {
 
     public static void premain(String agentArgs, Instrumentation inst) {
-        inst.addTransformer(new ReplaceMavenLoggerWithAnsiLogger());
+        if (!"false".equals(System.getProperty("maven.color"))) {
+            inst.addTransformer(new ReplaceMavenLoggerWithAnsiLogger());
+        }
     }
 
     /**
@@ -28,7 +30,7 @@ public class ChangeMavenLogger {
      *     <li>Surefire 2.3 : SurefireBooter#getForkingStreamConsumer</li>
      * </ul>
      */
-    private static class ReplaceMavenLoggerWithAnsiLogger implements ClassFileTransformer {
+    static class ReplaceMavenLoggerWithAnsiLogger implements ClassFileTransformer {
 
         public byte[] transform(ClassLoader classLoader, String s, Class<?> aClass, ProtectionDomain protectionDomain, byte[] bytes) throws IllegalClassFormatException {
 
