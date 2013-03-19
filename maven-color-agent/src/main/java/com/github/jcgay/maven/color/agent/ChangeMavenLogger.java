@@ -25,6 +25,7 @@ public class ChangeMavenLogger {
      *     <li>Maven : MavenCli#setupLogger</li>
      *     <li>Surefire 2.13 : DefaultReporterFactory#createConsoleLogger</li>
      *     <li>Surefire 2.9 : FileReporterFactory#createConsoleLogger</li>
+     *     <li>Surefire 2.3 : SurefireBooter#getForkingStreamConsumer</li>
      * </ul>
      */
     private static class ReplaceMavenLoggerWithAnsiLogger implements ClassFileTransformer {
@@ -49,6 +50,13 @@ public class ChangeMavenLogger {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
                 MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer, Version.SUREFIRE_2_9);
+                reader.accept(visitor, 0);
+                return writer.toByteArray();
+            }
+            if (s.equals("org/apache/maven/surefire/booter/SurefireBooter")) {
+                ClassReader reader = new ClassReader(bytes);
+                ClassWriter writer = new ClassWriter(reader, 0);
+                MavenSurefireBooterVisitor visitor = new MavenSurefireBooterVisitor(writer);
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
