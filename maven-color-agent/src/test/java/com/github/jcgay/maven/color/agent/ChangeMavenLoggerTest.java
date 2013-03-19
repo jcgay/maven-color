@@ -3,7 +3,6 @@ package com.github.jcgay.maven.color.agent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.lang.instrument.Instrumentation;

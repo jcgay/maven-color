@@ -32,6 +32,7 @@ public class AnsiColorLogger extends AbstractLogger {
     static interface Message {
         String SUCCESS = "SUCCESS";
         String FAILURE = "FAILURE";
+        String SKIPPED = "SKIPPED";
         String BUILD_SUCCESS = "BUILD " + SUCCESS;
         String BUILD_FAILURE = "BUILD " + FAILURE;
     }
@@ -119,6 +120,9 @@ public class AnsiColorLogger extends AbstractLogger {
         }
         if (message.contains(Message.FAILURE)) {
             return statusMessage(message, Message.FAILURE, RED);
+        }
+        if (message.contains(Message.SKIPPED)) {
+            return statusMessage(message, Message.SKIPPED, YELLOW);
         }
         return message;
     }

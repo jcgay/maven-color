@@ -173,7 +173,7 @@ public class AnsiColorLoggerTest {
     }
 
     @Test
-    public void should_log_reactor_summary_failure_in_green() throws Exception {
+    public void should_log_reactor_summary_failure_in_red() throws Exception {
 
         logger.info(Message.FAILURE);
 
@@ -181,7 +181,15 @@ public class AnsiColorLoggerTest {
     }
 
     @Test
-    public void should_throw_npe_when_message_to_log_is_null() throws Exception {
+    public void should_log_reactor_summary_skipped_in_yellow() throws Exception {
+
+        logger.info(Message.SKIPPED);
+
+        assertThat(result.toString()).contains(ansi().fgBright(Color.YELLOW).bold().a(Message.SKIPPED).reset().toString());
+    }
+
+    @Test
+    public void should_not_throw_npe_when_message_to_log_is_null() throws Exception {
 
         logger.info(null);
 
