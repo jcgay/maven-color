@@ -6,8 +6,8 @@ Tests results are also in color, failures/errors in red, skipped in yellow.
 
 ## Installation
 
-Get [maven-color-agent](https://repository-jcgay.forge.cloudbees.com/release/com/github/jcgay/maven/color/maven-color-agent/0.1/maven-color-agent-0.1.jar). Copy it wherever you want (`$HOME/.m2` for example).
-Append `-javaagent:$HOME/.m2/maven-color-agent-[version].jar` to you `$MAVEN_OPTS` environment variable.  
+Get [maven-color-agent](https://repository-jcgay.forge.cloudbees.com/release/com/github/jcgay/maven/color/maven-color-agent/0.1/maven-color-agent-0.1.jar). Copy it wherever you want (`$HOME/.m2` for example).  
+Append `-javaagent:$HOME/.m2/maven-color-agent-[version].jar` to your `$MAVEN_OPTS` environment variable.  
 Get [maven-color-logger](https://repository-jcgay.forge.cloudbees.com/snapshot/com/github/jcgay/maven/color/maven-color-logger/0.1-SNAPSHOT/maven-color-logger-0.1.jar) and copy it in `%M2_HOME%/lib/ext` folder.
 
 ## How it works
