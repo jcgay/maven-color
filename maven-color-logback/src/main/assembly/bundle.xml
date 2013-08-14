@@ -18,7 +18,6 @@
     <dependencySets>
         <dependencySet>
             <outputDirectory>/lib/ext</outputDirectory>
-            <useProjectArtifact>false</useProjectArtifact>
             <excludes>
                 <exclude>org.slf4j:slf4j-api</exclude>
             </excludes>
