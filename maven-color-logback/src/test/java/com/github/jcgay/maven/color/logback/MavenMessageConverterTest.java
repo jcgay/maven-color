@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static com.github.jcgay.maven.color.core.MessageColor.Message;
 import static com.github.jcgay.maven.color.core.MessageColor.colorize;
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MavenMessageConverterTest {
 
