@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <properties>
+        <property name="maven.logging.root.level">INFO</property>
+    </properties>
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{[%p{WARN=WARNING}]} %msg%n%throwable"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <root level="${sys:maven.logging.root.level}">
+            <appender-ref ref="console"/>
+        </root>
+    </loggers>
+</configuration>
