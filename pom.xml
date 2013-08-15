@@ -36,6 +36,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>maven-color-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.maven</groupId>
                 <artifactId>maven-embedder</artifactId>
                 <version>3.0.5</version>
@@ -186,5 +191,6 @@
         <module>maven-color-agent</module>
         <module>maven-color-logger</module>
         <module>maven-color-logback</module>
+        <module>maven-color-core</module>
     </modules>
 </project>

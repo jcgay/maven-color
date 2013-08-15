@@ -3,8 +3,6 @@ package com.github.jcgay.maven.color.logback;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.LoggingEvent;
-import ch.qos.logback.core.pattern.color.ANSIConstants;
-import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import static ch.qos.logback.core.pattern.color.ANSIConstants.*;

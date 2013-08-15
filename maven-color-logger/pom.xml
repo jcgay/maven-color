@@ -27,6 +27,10 @@
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>maven-color-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

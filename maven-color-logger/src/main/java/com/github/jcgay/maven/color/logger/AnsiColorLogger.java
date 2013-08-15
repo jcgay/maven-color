@@ -4,12 +4,13 @@ import com.google.common.annotations.VisibleForTesting;
 import org.apache.maven.Maven;
 import org.codehaus.plexus.logging.AbstractLogger;
 import org.codehaus.plexus.logging.Logger;
-import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
 import java.io.PrintStream;
 
-import static org.fusesource.jansi.Ansi.Color.*;
+import static com.github.jcgay.maven.color.core.MessageColor.colorize;
+import static org.fusesource.jansi.Ansi.Color.RED;
+import static org.fusesource.jansi.Ansi.Color.YELLOW;
 import static org.fusesource.jansi.Ansi.ansi;
 
 /**
@@ -28,14 +29,6 @@ import static org.fusesource.jansi.Ansi.ansi;
  * </ul>
  */
 public class AnsiColorLogger extends AbstractLogger {
-
-    static interface Message {
-        String SUCCESS = "SUCCESS";
-        String FAILURE = "FAILURE";
-        String SKIPPED = "SKIPPED";
-        String BUILD_SUCCESS = "BUILD " + SUCCESS;
-        String BUILD_FAILURE = "BUILD " + FAILURE;
-    }
 
     private PrintStream out;
 
@@ -69,7 +62,7 @@ public class AnsiColorLogger extends AbstractLogger {
     public void info(String message, Throwable throwable) {
         if (isInfoEnabled()) {
             out.print(INFO);
-            out.println(colorizeMessage(message));
+            out.println(colorize(message));
             printStackTrace(throwable);
         }
     }
@@ -103,31 +96,5 @@ public class AnsiColorLogger extends AbstractLogger {
         if (throwable != null) {
             throwable.printStackTrace(out);
         }
-    }
-
-    private String colorizeMessage(String message) {
-        if (message == null || "".equals(message)) {
-            return message;
-        }
-        if (message.contains(Message.BUILD_SUCCESS)) {
-            return statusMessage(message, Message.BUILD_SUCCESS, GREEN);
-        }
-        if (message.contains(Message.BUILD_FAILURE)) {
-            return statusMessage(message, Message.BUILD_FAILURE, RED);
-        }
-        if (message.contains(Message.SUCCESS)) {
-            return statusMessage(message, Message.SUCCESS, GREEN);
-        }
-        if (message.contains(Message.FAILURE)) {
-            return statusMessage(message, Message.FAILURE, RED);
-        }
-        if (message.contains(Message.SKIPPED)) {
-            return statusMessage(message, Message.SKIPPED, YELLOW);
-        }
-        return message;
-    }
-
-    private String statusMessage(String message, String toReplace, Ansi.Color color) {
-        return message.replace(toReplace, ansi().fgBright(color).bold().a(toReplace).reset().toString());
     }
 }
