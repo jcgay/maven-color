@@ -5,7 +5,7 @@
     </properties>
     <appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%highlight{[%p{WARN=WARNING}]} %msg%n%throwable"/>
+            <PatternLayout pattern="%highlight{[%p{WARN=WARNING}] %msg%n%rEx}{FATAL=red, ERROR=red, WARN=yellow, INFO=white, DEBUG=white, TRACE=white}"/>
         </Console>
     </appenders>
     <loggers>
