@@ -38,7 +38,14 @@ public final class MessageColor {
         if (message.contains(Message.SKIPPED)) {
             return statusMessage(message, Message.SKIPPED, YELLOW);
         }
+        if (isPluginExecution(message)) {
+            return ansi().bold().a(message).reset().toString();
+        }
         return message;
+    }
+
+    private static boolean isPluginExecution(String message) {
+        return message.startsWith("--- ") && message.endsWith(" ---");
     }
 
     private static String statusMessage(String message, String toReplace, Ansi.Color color) {
