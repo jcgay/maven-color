@@ -2,6 +2,7 @@ package com.github.jcgay.maven.color.core;
 
 import org.fusesource.jansi.Ansi;
 
+import static java.lang.Character.isDigit;
 import static org.fusesource.jansi.Ansi.Color.*;
 import static org.fusesource.jansi.Ansi.ansi;
 
@@ -17,6 +18,8 @@ public final class MessageColor {
         String SKIPPED = "SKIPPED";
         String BUILD_SUCCESS = "BUILD " + SUCCESS;
         String BUILD_FAILURE = "BUILD " + FAILURE;
+        String BUILDING = "Building ";
+        String SNAPSHOT = "-SNAPSHOT";
     }
 
     public static String colorize(String message) {
@@ -41,7 +44,19 @@ public final class MessageColor {
         if (isPluginExecution(message)) {
             return ansi().bold().a(message).reset().toString();
         }
+        if (isModuleHeader(message)) {
+            return ansi().fgBright(CYAN).a(message).reset().toString();
+        }
         return message;
+    }
+
+    private static boolean isModuleHeader(String message) {
+        return message.startsWith(Message.BUILDING)
+                && (message.endsWith(Message.SNAPSHOT) || isDigit(lastChar(message)));
+    }
+
+    private static char lastChar(String message) {
+        return message.charAt(message.length() - 1);
     }
 
     private static boolean isPluginExecution(String message) {
