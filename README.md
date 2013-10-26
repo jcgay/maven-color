@@ -19,7 +19,9 @@ This is a hacky java agent that replaces some logger implementation used interna
 It has been tested with Maven 3.0.4/5 and maven-surefire-plugin 2.6/2.9/2.14.
 
 ### known issues
-I'm using ASM 4.x to manipulate bytecode, if your build depends on a maven plugin which is using a different version of ASM, it will poorly fail…
+I'm using ASM 4.x to manipulate bytecode, if your build depends on a maven plugin which is using a different version of ASM, it will poorly fail…  
+In that case, turn off colorization by setting environment variable `MAVEN_COLOR` to `false`: 
+`export MAVEN_COLOR=false`
 
 ## Maven 3.1.x
 

@@ -16,7 +16,7 @@ import static com.github.jcgay.maven.color.agent.MavenSurefireVisitor.Version;
 public class ChangeMavenLogger {
 
     public static void premain(String agentArgs, Instrumentation inst) {
-        if (!"false".equals(System.getProperty("maven.color"))) {
+        if (!"false".equals(System.getenv("MAVEN_COLOR"))) {
             inst.addTransformer(new ReplaceMavenLoggerWithAnsiLogger());
         }
     }
