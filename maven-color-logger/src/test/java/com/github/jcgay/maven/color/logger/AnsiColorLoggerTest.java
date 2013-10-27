@@ -1,5 +1,6 @@
 package com.github.jcgay.maven.color.logger;
 
+import com.github.jcgay.maven.color.core.CustomAnsi;
 import org.codehaus.plexus.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,9 @@ public class AnsiColorLoggerTest {
 
         logger.warn("text in yellow");
 
-        assertThat(result.toString()).isEqualTo("\u001B[93m[WARNING] text in yellow\u001B[m\n");
+        assertThat(result.toString()).contains(
+                CustomAnsi.ansi().fgBright(Color.YELLOW).a("[WARNING] text in yellow").reset().toString()
+        );
     }
 
     @Test
@@ -53,7 +56,9 @@ public class AnsiColorLoggerTest {
 
         logger.error("text in red");
 
-        assertThat(result.toString()).isEqualTo("\u001B[91m[ERROR] text in red\u001B[m\n");
+        assertThat(result.toString()).contains(
+                CustomAnsi.ansi().fgBright(Color.RED).a("[ERROR] text in red").reset().toString()
+        );
     }
 
     @Test
@@ -78,7 +83,7 @@ public class AnsiColorLoggerTest {
 
         logger.debug("message");
 
-        assertThat(result.toString()).isEqualTo("[DEBUG] message\n");
+        assertThat(result.toString()).isEqualTo(String.format("[DEBUG] message%n"));
     }
 
     @Test
@@ -103,7 +108,7 @@ public class AnsiColorLoggerTest {
 
         logger.info("message");
 
-        assertThat(result.toString()).isEqualTo("[INFO] message\n");
+        assertThat(result.toString()).isEqualTo(String.format("[INFO] message%n"));
     }
 
     @Test
@@ -128,7 +133,9 @@ public class AnsiColorLoggerTest {
 
         logger.fatalError("text in red");
 
-        assertThat(result.toString()).isEqualTo("\u001B[91;1m[FATAL] text in red\u001B[m\n");
+        assertThat(result.toString()).contains(
+                CustomAnsi.ansi().fgBright(Color.RED).bold().a("[FATAL] text in red").reset().toString()
+        );
     }
 
     @Test
