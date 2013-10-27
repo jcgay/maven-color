@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import static com.github.jcgay.maven.color.core.MessageColor.Message;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fusesource.jansi.Ansi.Color;
-import static org.fusesource.jansi.Ansi.ansi;
+import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 
 public class AnsiColorLoggerTest {
 

@@ -4,7 +4,7 @@ import org.fusesource.jansi.Ansi;
 
 import static java.lang.Character.isDigit;
 import static org.fusesource.jansi.Ansi.Color.*;
-import static org.fusesource.jansi.Ansi.ansi;
+import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 
 public final class MessageColor {
 

@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import static com.github.jcgay.maven.color.core.MessageColor.colorize;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
-import static org.fusesource.jansi.Ansi.ansi;
+import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 
 /**
  * Add color based on message level:

@@ -5,7 +5,7 @@ import org.fusesource.jansi.Ansi;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.fusesource.jansi.Ansi.ansi;
+import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 
 /**
  * Modify Test summary display by colorizing test count (Error/Failure : RED, Skipped : YELLOW, Total : BOLD).
