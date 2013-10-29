@@ -1,8 +1,6 @@
 #Maven Color
 
-A colorized Maven console.  
-Error messages are displayed in red, Warning in yellow.  
-Tests results are also in color, failures/errors in red, skipped in yellow.
+A colorized Maven console.
 
 [![maven-color](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color-resize.png)](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color.png)
 
@@ -17,15 +15,21 @@ Get [maven-color-logger](http://dl.bintray.com/jcgay/maven/com/github/jcgay/mave
 ### How it works
 This is a hacky java agent that replaces some logger implementation used internally by Maven and Surefire plugin.  
 It has been tested with Maven 3.0.4/5 and maven-surefire-plugin 2.6/2.9/2.14.
+It uses [Jansi](http://jansi.fusesource.org/) under the hood, which makes this monster working on Windows :)
 
-### known issues
-I'm using ASM 4.x to manipulate bytecode, if your build depends on a maven plugin which is using a different version of ASM, it will poorly fail…  
-In that case, turn off colorization by setting environment variable `MAVEN_COLOR` to `false`: 
+Colorization can be turned off by setting environment variable `$MAVEN_COLOR` to `false`: 
 `export MAVEN_COLOR=false`
+
+### Known issues
+I'm using ASM 4.x to manipulate bytecode, if your build depends on a maven plugin which is using a different version of ASM, it will poorly fail…
+For example, you can't run `mvn sonar:sonar` with `maven-color` configured.  
+In that case, deactivate the Java agent in `$MAVEN_OPTS` environment variable to not instrument the code.
 
 ## Maven 3.1.x
 
-Maven now use SLF4J internally, meaning you can choose what logger implementation you want to use. By default it comes with `slf4j-simple`.
+Maven now relies on [SLF4J](http://www.slf4j.org/) internally, meaning you can choose what logger implementation you want to use. By default it comes with `slf4j-simple`.
+
+Read [United colors of Maven](http://aheritier.net/united-colors-of-maven/) to learn more about it !
 
 Surefire colorization is not implemented, the plugin doesn't use SLF4J yet.
 
