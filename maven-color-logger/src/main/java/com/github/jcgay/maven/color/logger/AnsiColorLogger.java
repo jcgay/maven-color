@@ -53,16 +53,14 @@ public class AnsiColorLogger extends AbstractLogger {
 
     public void debug(String message, Throwable throwable) {
         if (isDebugEnabled()) {
-            out.print(DEBUG);
-            out.println(message);
+            out.println(DEBUG + message);
             printStackTrace(throwable);
         }
     }
 
     public void info(String message, Throwable throwable) {
         if (isInfoEnabled()) {
-            out.print(INFO);
-            out.println(colorize(message));
+            out.println(INFO + colorize(message));
             printStackTrace(throwable);
         }
     }
