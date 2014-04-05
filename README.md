@@ -9,7 +9,7 @@ A colorized Maven console.
 ### Installation
 
 Get [maven-color-agent](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-agent/0.4/maven-color-agent-0.4.jar). Copy it wherever you want (`$HOME/.m2` for example).  
-Append `-javaagent:$HOME/.m2/maven-color-agent-0.4.jar` to your `$MAVEN_OPTS` environment variable.  
+Append `-javaagent:/Users/jcgay/.m2/maven-color-agent-0.4.jar` to your `$MAVEN_OPTS` environment variable where `/Users/jcgay/` is your `$HOME` value.  
 Get [maven-color-logger](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logger/0.4/maven-color-logger-0.4.jar) and copy it in `$M2_HOME/lib/ext` folder.
 
 ### How it works
