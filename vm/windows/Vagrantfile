@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "kensykora/windows_2012_r2_standard"
+
+  # WinRM is more conventional to communicate with a Windows box, even if ssh is
+  # available too.
+  config.vm.communicator = "winrm"
+
+  # Application binaries we want to test
+  config.vm.synced_folder "../../maven-color-logback/target", "/logback"
+  config.vm.synced_folder "../../maven-color-log4j2/target", "/log4j2"
+  config.vm.synced_folder "../..", "/maven-color"
+
+  config.vm.provider "virtualbox" do |vb|
+     # Don't boot with headless mode
+     vb.gui = true
+  end
+
+  config.vm.provision :shell, :path => "setup-chocolatey.cmd"
+  config.vm.provision :shell, :path => "install.cmd"
+
+end
