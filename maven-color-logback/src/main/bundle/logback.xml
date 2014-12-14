@@ -1,5 +1,7 @@
 <configuration>
 
+    <define name="withJansi" class="com.github.jcgay.maven.color.logback.WithJansiResolver" />
+
     <conversionRule conversionWord="mavenHighlight"
                     converterClass="com.github.jcgay.maven.color.logback.MavenHighlightConverter" />
 
@@ -7,7 +9,7 @@
                     converterClass="com.github.jcgay.maven.color.logback.MavenMessageConverter" />
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <withJansi>true</withJansi>
+        <withJansi>${withJansi}</withJansi>
         <encoder>
             <pattern>%mavenHighlight([%replace(%level){'WARN','WARNING'}] %mavenMsg%n%rEx)</pattern>
         </encoder>
