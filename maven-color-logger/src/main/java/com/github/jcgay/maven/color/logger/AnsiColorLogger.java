@@ -51,6 +51,7 @@ public class AnsiColorLogger extends AbstractLogger {
         this.out = out;
     }
 
+    @Override
     public void debug(String message, Throwable throwable) {
         if (isDebugEnabled()) {
             out.println(DEBUG + message);
@@ -58,6 +59,7 @@ public class AnsiColorLogger extends AbstractLogger {
         }
     }
 
+    @Override
     public void info(String message, Throwable throwable) {
         if (isInfoEnabled()) {
             out.println(INFO + colorize(message));
@@ -65,6 +67,7 @@ public class AnsiColorLogger extends AbstractLogger {
         }
     }
 
+    @Override
     public void warn(String message, Throwable throwable) {
         if (isWarnEnabled()) {
             out.println(ansi().fgBright(YELLOW).a(WARNING).a(message).reset());
@@ -72,6 +75,7 @@ public class AnsiColorLogger extends AbstractLogger {
         }
     }
 
+    @Override
     public void error(String message, Throwable throwable) {
         if (isErrorEnabled()) {
             out.println(ansi().fgBright(RED).a(ERROR).a(message).reset());
@@ -79,6 +83,7 @@ public class AnsiColorLogger extends AbstractLogger {
         }
     }
 
+    @Override
     public void fatalError(String message, Throwable throwable) {
         if (isFatalErrorEnabled()) {
             out.println(ansi().fgBright(RED).bold().a(FATAL).a(message).reset());
@@ -86,6 +91,7 @@ public class AnsiColorLogger extends AbstractLogger {
         }
     }
 
+    @Override
     public Logger getChildLogger(String name) {
         return this;
     }

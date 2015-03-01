@@ -4,9 +4,13 @@ import org.fusesource.jansi.Ansi;
 
 public class CustomAnsi {
 
+    private CustomAnsi() {
+        // hide construction
+    }
+
     public static Ansi ansi() {
         String currentOs = System.getProperty("os.name");
-        if (currentOs != null && currentOs.toLowerCase().indexOf("win") != -1) {
+        if (currentOs != null && currentOs.toLowerCase().contains("win")) {
             return NonBrightAnsi.ansi();
         }
         return Ansi.ansi();

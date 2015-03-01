@@ -15,6 +15,10 @@ import static com.github.jcgay.maven.color.agent.MavenSurefireVisitor.Version;
  */
 public class ChangeMavenLogger {
 
+    private ChangeMavenLogger() {
+        // hide construction
+    }
+
     public static void premain(String agentArgs, Instrumentation inst) {
         if (!"false".equals(System.getenv("MAVEN_COLOR"))) {
             inst.addTransformer(new ReplaceMavenLoggerWithAnsiLogger());
@@ -34,28 +38,28 @@ public class ChangeMavenLogger {
 
         public byte[] transform(ClassLoader classLoader, String s, Class<?> aClass, ProtectionDomain protectionDomain, byte[] bytes) throws IllegalClassFormatException {
 
-            if (s.equals("org/apache/maven/cli/MavenCli")) {
+            if ("org/apache/maven/cli/MavenCli".equals(s)) {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
                 MavenCliVisitor visitor = new MavenCliVisitor(writer);
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
-            if (s.equals("org/apache/maven/plugin/surefire/report/DefaultReporterFactory")) {
+            if ("org/apache/maven/plugin/surefire/report/DefaultReporterFactory".equals(s)) {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
                 MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer, Version.SUREFIRE_2_13);
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
-            if (s.equals("org/apache/maven/plugin/surefire/report/FileReporterFactory")) {
+            if ("org/apache/maven/plugin/surefire/report/FileReporterFactory".equals(s)) {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
                 MavenSurefireVisitor visitor = new MavenSurefireVisitor(writer, Version.SUREFIRE_2_9);
                 reader.accept(visitor, 0);
                 return writer.toByteArray();
             }
-            if (s.equals("org/apache/maven/surefire/booter/SurefireBooter")) {
+            if ("org/apache/maven/surefire/booter/SurefireBooter".equals(s)) {
                 ClassReader reader = new ClassReader(bytes);
                 ClassWriter writer = new ClassWriter(reader, 0);
                 MavenSurefireBooterVisitor visitor = new MavenSurefireBooterVisitor(writer);

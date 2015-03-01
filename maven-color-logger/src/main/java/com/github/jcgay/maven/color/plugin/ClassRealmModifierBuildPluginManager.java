@@ -33,7 +33,7 @@ public class ClassRealmModifierBuildPluginManager extends DefaultBuildPluginMana
 
     @VisibleForTesting URL getJarUrl(Class<?> clazz) {
         URL resource = clazz.getResource("/" + clazz.getName().replace('.', '/') + ".class");
-        if (resource == null || !resource.getProtocol().equals("jar")) {
+        if (resource == null || !"jar".equals(resource.getProtocol())) {
             return null;
         }
 
