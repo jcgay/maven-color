@@ -9,7 +9,7 @@
     <fileSets>
         <fileSet>
             <directory>${project.basedir}/src/main/bundle</directory>
-            <outputDirectory>/conf/logging</outputDirectory>
+            <outputDirectory>conf/logging</outputDirectory>
             <includes>
                 <include>logback.xml</include>
             </includes>
