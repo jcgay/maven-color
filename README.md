@@ -51,8 +51,3 @@ It uses [Jansi](http://jansi.fusesource.org/) under the hood, which makes this m
 
 Colorization can be turned off by setting environment variable `$MAVEN_COLOR` to `false`: 
 `export MAVEN_COLOR=false`
-
-### Known issues
-I'm using ASM 4.x to manipulate bytecode, if your build depends on a maven plugin which is using a different version of ASM, it will poorly fail…
-For example, you can't run `mvn sonar:sonar` with `maven-color` configured.  
-In that case, deactivate the Java agent in `$MAVEN_OPTS` environment variable to not instrument the code.
