@@ -1,3 +1,9 @@
+#1.0
+***
+
+- Relocate ASM classes [view](http://github.com/jcgay/maven-color/commit/781157375e84fb8994a477a955c55854408c8a61)
+- Remove build warning about cross platform compatibility [view](http://github.com/jcgay/maven-color/commit/6159f0cdc10bca11da36607038502db194fd3e06)
+
 #0.5
 ***
 
