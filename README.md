@@ -51,3 +51,7 @@ It uses [Jansi](http://jansi.fusesource.org/) under the hood, which makes this m
 
 Colorization can be turned off by setting environment variable `$MAVEN_COLOR` to `false`: 
 `export MAVEN_COLOR=false`
+
+# Build status
+[![Build Status](https://travis-ci.org/jcgay/maven-color.svg?branch=master)](https://travis-ci.org/jcgay/maven-color)
+[![Coverage Status](https://coveralls.io/repos/jcgay/maven-color/badge.svg?branch=master)](https://coveralls.io/r/jcgay/maven-color?branch=master)
