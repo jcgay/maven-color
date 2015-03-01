@@ -3,3 +3,5 @@ jdk:
   - oraclejdk8
   - oraclejdk7
   - openjdk6
+after_success:
+  - mvn clean verify coveralls:report -Prun-coverage
