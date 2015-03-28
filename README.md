@@ -51,7 +51,7 @@ Get [maven-color-logger](http://dl.bintray.com/jcgay/maven/com/github/jcgay/mave
 This is a hacky java agent that replaces some logger implementation used internally by Maven and Surefire plugin.  
 It has been tested with Maven 3.0.4/5 and maven-surefire-plugin 2.6/2.9/2.14.  
 
-It uses [Jansi](http://jansi.fusesource.org/) under the hood, which makes this monster working on Windows :)
+It uses [Jansi](https://github.com/fusesource/jansi) under the hood, which makes this monster working on Windows :)
 
 Colorization can be turned off by setting environment variable `$MAVEN_COLOR` to `false`: 
 `export MAVEN_COLOR=false`
