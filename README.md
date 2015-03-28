@@ -8,9 +8,13 @@ A colorized Maven console.
 
 See [CHANGELOG](https://github.com/jcgay/maven-color/blob/master/CHANGELOG.md) for latest changes.
 
+#Notifications ?
+
+If you would like to be notify when a `mvn` build ends, you should give a try to [maven-notifier](https://github.com/jcgay/maven-notifier) !
+
 #Installation
 
-## Maven 3.1.x
+## Maven >= 3.1.x
 
 Maven now relies on [SLF4J](http://www.slf4j.org/) internally, meaning you can choose what logger implementation you want to use. By default it comes with `slf4j-simple`.
 
