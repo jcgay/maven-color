@@ -4,3 +4,6 @@ target
 
 ### Vagrant ###
 .vagrant/
+
+### Maven ###
+.mvn/timing.properties
