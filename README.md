@@ -1,6 +1,6 @@
 #Maven Color
 
-A colorized Maven console.
+A multi-OS colorized Maven console.
 
 [![maven-color](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color-resize.png)](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color.png)
 
@@ -10,7 +10,7 @@ See [CHANGELOG](https://github.com/jcgay/maven-color/blob/master/CHANGELOG.md) f
 
 #Notifications ?
 
-If you would like to be notify when a `mvn` build ends, you should give a try to [maven-notifier](https://github.com/jcgay/maven-notifier) !
+If you would like to be notified when a `mvn` build ends, you should give a try to [maven-notifier](https://github.com/jcgay/maven-notifier) !
 
 #Installation
 
@@ -25,14 +25,26 @@ Surefire colorization is not implemented, the plugin doesn't use SLF4J.
 ### Logback
 
 Get maven-color-logback-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.0/maven-color-logback-1.0-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.0/maven-color-logback-1.0-bundle.zip).  
+
 Extract it in your `$M2_HOME` folder. It contains logback dependencies and logging configuration.  
+
+    tar xvfz maven-color-logback-1.0-bundle.tar.gz --strip 1 -C $M2_HOME
+
 Delete `$M2_HOME/lib/slf4j-simple-1.7.x.jar`.
+
+    rm $M2_HOME/lib/slf4j-simple-1.7.*.jar
 
 ### Log4j 2
 
 Get maven-color-log4j2-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.0/maven-color-log4j2-1.0-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.0/maven-color-log4j2-1.0-bundle.zip).  
-Extract it in your `$M2_HOME` folder. It contains log4j 2 dependencies and logging configuration.  
+
+Extract it in your `$M2_HOME` folder. It contains logback dependencies and logging configuration.  
+
+    tar xvfz maven-color-log4j2-1.0-bundle.tar.gz --strip 1 -C $M2_HOME
+
 Delete `$M2_HOME/lib/slf4j-simple-1.7.x.jar`.
+
+    rm $M2_HOME/lib/slf4j-simple-1.7.*.jar
 
 ## Update from previous installation
 
