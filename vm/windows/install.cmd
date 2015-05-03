@@ -1,14 +1,14 @@
 echo 'Installing Java JDK'
-choco install java.jdk
+choco install -y java.jdk
 
 echo 'Installing Maven'
-choco install maven
+choco install -y maven
 
 echo 'Installing Git'
-choco install git
+choco install -y git
 
 echo 'Installing Cygwin'
-choco install cygwin
+choco install -y cygwin
 
 echo 'Installing 7zip'
-choco install 7zip
+choco install -y 7zip
