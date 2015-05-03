@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <log4j.version>2.0-beta6</log4j.version>
+        <log4j.version>2.0-beta8</log4j.version>
         <slf4j.version>1.7.5</slf4j.version>
     </properties>
 
