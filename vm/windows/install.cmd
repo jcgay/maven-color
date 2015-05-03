@@ -12,3 +12,9 @@ choco install -y cygwin
 
 echo 'Installing 7zip'
 choco install -y 7zip
+
+echo 'Installing ConEmu'
+choco install -y conemu
+
+echo 'Installing Clink'
+choco install -y clink.install
