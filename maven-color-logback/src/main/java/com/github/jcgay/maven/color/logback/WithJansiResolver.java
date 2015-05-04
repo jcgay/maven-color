@@ -21,7 +21,7 @@ public class WithJansiResolver extends PropertyDefinerBase {
     @Override
     public String getPropertyValue() {
         if (isWindows()) {
-            return isUnixTerminal() ? FALSE.toString() : TRUE.toString();
+            return hasTerminalWithColors() ? FALSE.toString() : TRUE.toString();
         }
         return FALSE.toString();
     }
@@ -30,7 +30,8 @@ public class WithJansiResolver extends PropertyDefinerBase {
         return System.getProperty("os.name").toLowerCase().contains("win");
     }
 
-    private boolean isUnixTerminal() {
-        return env.getValue("TERM") != null;
+    private boolean hasTerminalWithColors() {
+        String term = env.getValue("TERM");
+        return !"msys".equalsIgnoreCase(term) && term != null;
     }
 }

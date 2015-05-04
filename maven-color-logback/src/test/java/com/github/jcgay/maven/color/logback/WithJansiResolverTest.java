@@ -21,34 +21,42 @@ public class WithJansiResolverTest {
     private WithJansiResolver resolver;
 
     @Test
-    public void should_return_false_when_os_is_not_windows() throws Exception {
+    public void should_return_false_when_os_is_not_windows() {
         given_current_os_is("Mac OS X");
 
         assertThat(resolver.getPropertyValue()).isEqualTo("false");
     }
 
     @Test
-    public void should_return_true_when_os_is_windows_with_non_unix_terminal() throws Exception {
+    public void should_return_true_when_os_is_windows_with_cmd_as_terminal() {
         given_current_os_is("Windows Server 2012 R2");
-        given_terminal_is_non_unix();
+        given_terminal_is_classic_windows_cmd();
 
         assertThat(resolver.getPropertyValue()).isEqualTo("true");
     }
 
     @Test
-    public void should_return_true_when_os_is_windows_with_unix_terminal() throws Exception {
+    public void should_return_true_when_os_is_windows_with_msys_as_terminal() {
         given_current_os_is("Windows Server 2012 R2");
-        given_terminal_is_unix();
+        given_terminal("msys");
+
+        assertThat(resolver.getPropertyValue()).isEqualTo("true");
+    }
+
+    @Test
+    public void should_return_false_when_os_is_windows_with_cygwin_as_terminal() {
+        given_current_os_is("Windows Server 2012 R2");
+        given_terminal("cygwin");
 
         assertThat(resolver.getPropertyValue()).isEqualTo("false");
     }
 
-    private void given_terminal_is_non_unix() {
+    private void given_terminal_is_classic_windows_cmd() {
         terminal().thenReturn(null);
     }
 
-    private void given_terminal_is_unix() {
-        terminal().thenReturn("cygwin");
+    private void given_terminal(String terminal) {
+        terminal().thenReturn(terminal);
     }
 
     private OngoingStubbing<String> terminal() {
