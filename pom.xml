@@ -32,10 +32,6 @@
             <name>jcgay-maven-maven-color</name>
             <url>https://api.bintray.com/maven/jcgay/maven/maven-color</url>
         </repository>
-        <snapshotRepository>
-            <id>jcgay-cloudbees-snapshot</id>
-            <url>dav:https://repository-jcgay.forge.cloudbees.com/snapshot/</url>
-        </snapshotRepository>
     </distributionManagement>
 
     <dependencyManagement>
