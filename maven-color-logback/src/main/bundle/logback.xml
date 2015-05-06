@@ -8,8 +8,8 @@
     <conversionRule conversionWord="mavenMsg"
                     converterClass="com.github.jcgay.maven.color.logback.MavenMessageConverter" />
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <withJansi>${withJansi}</withJansi>
+    <appender name="STDOUT" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
+        <useJansi>${withJansi}</useJansi>
         <encoder>
             <pattern>%mavenHighlight([%replace(%level){'WARN','WARNING'}] %mavenMsg%n%rEx)</pattern>
         </encoder>
