@@ -1,3 +1,11 @@
+#1.1
+***
+
+- Prevent warning when Jansi fails to create WindowsAnsiOutputStream ([a377797](http://github.com/jcgay/maven-color/commit/a3777977f493a9f9ce85501ab957a3812ebc5b17))
+- Use Jansi with Logback when windows terminal is msys ([f763ab5](http://github.com/jcgay/maven-color/commit/f763ab52ecdb6fb8882769a1a5106c89b4dcbe2e))
+- Do not create a top directory in archives ([88c8ec2](http://github.com/jcgay/maven-color/commit/88c8ec2e54303d58d7895b0b8394545ebbdab3f7))
+- Upgrade Log4j 2 to version 2.0-beta8 ([91a2c67](http://github.com/jcgay/maven-color/commit/91a2c673a19356ad3daf5529de969f81a7022b13))
+
 #1.0
 ***
 
