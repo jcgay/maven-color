@@ -2,7 +2,7 @@
 
 A multi-OS colorized Maven console.
 
-[![maven-color](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color-resize.png)](http://jeanchristophegay.com/wp-content/uploads/2013/10/maven-color.png)
+[![asciicast](https://asciinema.org/a/20053.png)](https://asciinema.org/a/20053?autoplay=1)
 
 #What's new ?
 
