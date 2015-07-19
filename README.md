@@ -24,6 +24,15 @@ If you would like to be notified when a `mvn` build ends, you should give a try 
 └── lib
 ``` 
 
+## OS X ?
+
+You can install a pre-packaged maven named [maven-deluxe](https://github.com/jcgay/homebrew-jcgay#maven-deluxe) using `brew`.  
+It comes with [maven-color](https://github.com/jcgay/maven-color), [maven-notifier](https://github.com/jcgay/maven-notifier) and [maven-profiler](https://github.com/jcgay/maven-profiler).  
+It is based on latest maven release.
+
+    brew tap jcgay/jcgay
+    brew install maven-deluxe
+
 ## Maven >= 3.1.x
 
 Maven now relies on [SLF4J](http://www.slf4j.org/) internally, meaning you can choose what logger implementation you want to use. By default it comes with `slf4j-simple`.
