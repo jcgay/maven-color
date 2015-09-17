@@ -1,6 +1,6 @@
 package com.github.jcgay.maven.color.log4j2;
 
-import com.github.jcgay.maven.color.core.MessageColor;
+import com.github.jcgay.maven.color.core.DefaultColorization;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -10,10 +10,7 @@ import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 import org.apache.logging.log4j.message.SimpleMessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static com.github.jcgay.maven.color.core.MessageColor.colorize;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(DataProviderRunner.class)
@@ -40,7 +37,7 @@ public class MavenMessagePatternConverterTest {
 
         converter.format(event(level), result);
 
-        assertThat(result).doesNotContain(colorize(MessageColor.Message.BUILD_SUCCESS));
+        assertThat(result).doesNotContain(colorize(DefaultColorization.Message.BUILD_SUCCESS));
     }
 
     @Test
@@ -50,11 +47,15 @@ public class MavenMessagePatternConverterTest {
 
         converter.format(event(Level.INFO), result);
 
-        assertThat(result.toString()).isEqualTo(colorize(MessageColor.Message.BUILD_SUCCESS));
+        assertThat(result.toString()).isEqualTo(colorize(DefaultColorization.Message.BUILD_SUCCESS));
     }
 
     private static LogEvent event(Level level) {
-        SimpleMessage message = new SimpleMessage(MessageColor.Message.BUILD_SUCCESS);
+        SimpleMessage message = new SimpleMessage(DefaultColorization.Message.BUILD_SUCCESS);
         return new Log4jLogEvent("logger.name", null, "", level, message, null);
+    }
+
+    private static CharSequence colorize(String message) {
+        return new DefaultColorization().colorize(message);
     }
 }

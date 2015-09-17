@@ -1,0 +1,10 @@
+import com.github.jcgay.maven.color.core.CustomColorization
+import org.fusesource.jansi.Ansi
+
+class MyColor extends CustomColorization {
+
+    @Override
+    Ansi onSuccess() {
+        ansi().bold()
+    }
+}

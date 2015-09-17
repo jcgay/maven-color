@@ -1,0 +1,9 @@
+import com.github.jcgay.maven.color.core.CustomAnsi
+import org.fusesource.jansi.Ansi
+
+class FailMyColor {
+
+    Ansi onSuccess() {
+        CustomAnsi.ansi().bold()
+    }
+}

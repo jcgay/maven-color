@@ -3,10 +3,10 @@ package com.github.jcgay.maven.color.logback;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.spi.LoggingEvent;
+import com.github.jcgay.maven.color.core.DefaultColorization;
 import org.junit.Test;
 
-import static com.github.jcgay.maven.color.core.MessageColor.Message;
-import static com.github.jcgay.maven.color.core.MessageColor.colorize;
+import static com.github.jcgay.maven.color.core.DefaultColorization.Message;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MavenMessageConverterTest {
@@ -24,6 +24,10 @@ public class MavenMessageConverterTest {
     @Test
     public void should_colorize_message_when_level_is_info() throws Exception {
         assertThat(converter.convert(event(Level.INFO))).isEqualTo(colorize(Message.BUILD_SUCCESS));
+    }
+
+    private static CharSequence colorize(String message) {
+        return new DefaultColorization().colorize(message);
     }
 
     private ILoggingEvent event(Level level) {
