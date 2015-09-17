@@ -39,7 +39,7 @@ Maven now relies on [SLF4J](http://www.slf4j.org/) internally, meaning you can c
 
 Read [United colors of Maven](http://aheritier.net/united-colors-of-maven/) to learn more about it !
 
-Surefire colorization is not implemented, the plugin doesn't use SLF4J.
+You can have colored console using `Logback` or `Log4j 2`.
 
 ### Logback
 
@@ -72,20 +72,7 @@ In `$M2_HOME/lib/ext`, delete `maven-color*`, `logback*`, `log4j*`, `jansi*`, `s
 
 ## Maven 3.0.x
 
-### Installation
-
-Get [maven-color-agent](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-agent/1.1/maven-color-agent-1.1.jar). Copy it wherever you want (`$HOME/.m2` for example).  
-Append `-javaagent:/Users/jcgay/.m2/maven-color-agent-1.1.jar` to your `$MAVEN_OPTS` environment variable where `/Users/jcgay/` is your `$HOME` value.  
-Get [maven-color-logger](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logger/1.1/maven-color-logger-1.1.jar) and copy it in `$M2_HOME/lib/ext` folder.
-
-### How it works
-This is a hacky java agent that replaces some logger implementation used internally by Maven and Surefire plugin.  
-It has been tested with Maven 3.0.4/5 and maven-surefire-plugin 2.6/2.9/2.14.  
-
-It uses [Jansi](https://github.com/fusesource/jansi) under the hood, which makes this monster working on Windows :)
-
-Colorization can be turned off by setting environment variable `$MAVEN_COLOR` to `false`: 
-`export MAVEN_COLOR=false`
+See latest release supporting Maven 3.0.x: [maven-color 1.1](https://github.com/jcgay/maven-color/tree/v1.1#maven-30x)
 
 #Known problems
 

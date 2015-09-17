@@ -42,32 +42,9 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.maven</groupId>
-                <artifactId>maven-embedder</artifactId>
-                <version>3.0.5</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.surefire</groupId>
-                <artifactId>surefire-api</artifactId>
-                <version>2.14</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.surefire</groupId>
-                <artifactId>surefire-booter</artifactId>
-                <version>2.6</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.fusesource.jansi</groupId>
                 <artifactId>jansi</artifactId>
                 <version>1.11</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm</artifactId>
-                <version>4.1</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -131,8 +108,6 @@
     </dependencies>
 
     <modules>
-        <module>maven-color-agent</module>
-        <module>maven-color-logger</module>
         <module>maven-color-logback</module>
         <module>maven-color-core</module>
         <module>maven-color-log4j2</module>
