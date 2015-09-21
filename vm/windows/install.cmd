@@ -17,4 +17,4 @@ echo 'Installing ConEmu'
 choco install -y conemu
 
 echo 'Installing Clink'
-choco install -y clink.install
+choco install -y clink
