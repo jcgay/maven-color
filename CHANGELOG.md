@@ -1,3 +1,9 @@
+#1.2
+***
+
+- Can customize colors ([b4630d7](http://github.com/jcgay/maven-color/commit/b4630d74f29ee31230fc0eb2c64edcc4c7907e94))
+- Remove Maven 3.0.x support ([1e04624](http://github.com/jcgay/maven-color/commit/1e0462444fcb9032ff82d8709c4e26e287ca6f27))
+
 #1.1
 ***
 
