@@ -19,6 +19,11 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>maven-color-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>

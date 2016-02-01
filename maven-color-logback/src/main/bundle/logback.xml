@@ -11,7 +11,14 @@
     <appender name="STDOUT" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
         <useJansi>${withJansi}</useJansi>
         <encoder>
-            <pattern>%mavenHighlight([%replace(%level){'WARN','WARNING'}] %mavenMsg%n%rEx)</pattern>
+            <if condition='"false".equals(property("maven.color"))'>
+                <then>
+                    <pattern>[%replace(%level){'WARN','WARNING'}] %msg%n%rEx</pattern>
+                </then>
+                <else>
+                    <pattern>%mavenHighlight([%replace(%level){'WARN','WARNING'}] %mavenMsg%n%rEx)</pattern>
+                </else>
+            </if>
         </encoder>
     </appender>
 

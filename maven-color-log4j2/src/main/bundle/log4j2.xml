@@ -2,15 +2,19 @@
 <configuration packages="com.github.jcgay.maven.color.log4j2">
     <properties>
         <property name="maven.logging.root.level">INFO</property>
+        <property name="maven.color">true</property>
     </properties>
     <appenders>
-        <Console name="console" target="SYSTEM_OUT">
+        <Console name="maven-color-true" target="SYSTEM_OUT">
             <PatternLayout pattern="%highlight{[%p{WARN=WARNING}] %mavenMsg%n%rEx}{FATAL=red, ERROR=red, WARN=yellow, INFO=white, DEBUG=white, TRACE=white}"/>
+        </Console>
+        <Console name="maven-color-false" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%p{WARN=WARNING}] %msg%n%rEx"/>
         </Console>
     </appenders>
     <loggers>
         <root level="${sys:maven.logging.root.level}">
-            <appender-ref ref="console"/>
+            <appender-ref ref="maven-color-${sys:maven.color}"/>
         </root>
     </loggers>
 </configuration>
