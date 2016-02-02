@@ -16,7 +16,7 @@
                     <pattern>[%replace(%level){'WARN','WARNING'}] %msg%n%rEx</pattern>
                 </then>
                 <else>
-                    <pattern>%mavenHighlight([%replace(%level){'WARN','WARNING'}] %mavenMsg%n%rEx)</pattern>
+                    <pattern>%mavenHighlight(%mavenMsg%n%rEx)</pattern>
                 </else>
             </if>
         </encoder>
