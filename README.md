@@ -79,11 +79,26 @@ In `$M2_HOME/lib/ext`, delete `maven-color*`, `logback*`, `log4j*`, `jansi*`, `s
 
 Use [maven-color 1.1](https://github.com/jcgay/maven-color/tree/v1.1#maven-30x) which is the last release compatible with Maven 3.0.x.
 
-# Build status
+# Build
+
+## Status
+
 [![Build Status](https://travis-ci.org/jcgay/maven-color.svg?branch=master)](https://travis-ci.org/jcgay/maven-color)
 [![Build status](https://ci.appveyor.com/api/projects/status/y8rn0pew98jbr9j8/branch/master?svg=true)](https://ci.appveyor.com/project/jcgay/maven-color/branch/master)
 [![Coverage Status](https://coveralls.io/repos/jcgay/maven-color/badge.svg?branch=master)](https://coveralls.io/r/jcgay/maven-color?branch=master)
 
-# Release
+## Release
 
     mvn -B release:prepare release:perform
+
+## Test with Docker
+
+### Log4j2
+
+    docker build -f Dockerfile-log4j2 -t jcgay/maven-color-log4j2 .
+    docker run -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-log4j2 mvn clean install
+
+### Logback
+    
+    docker build -f Dockerfile-logback -t jcgay/maven-color-logback .
+    docker run -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-logback mvn clean install
