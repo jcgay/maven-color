@@ -1,3 +1,9 @@
+#1.3
+***
+
+- Remove log level for colored output ([8702b0e](http://github.com/jcgay/maven-color/commit/8702b0eccd8c04f77ffc7f0269b25c19cccd9c7a))
+- Can disable coloring using property maven.color ([481b9c2](http://github.com/jcgay/maven-color/commit/481b9c2f53000ddee3b2296cad210580718739b8))
+
 #1.2
 ***
 

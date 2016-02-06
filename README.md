@@ -48,11 +48,11 @@ You can have colored console using `Logback` or `Log4j 2`.
 
 ### Logback
 
-Get maven-color-logback-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.2/maven-color-logback-1.2-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.2/maven-color-logback-1.2-bundle.zip).  
+Get maven-color-logback-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.3/maven-color-logback-1.3-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.3/maven-color-logback-1.3-bundle.zip).  
 
 Extract it in your `$M2_HOME` folder. It contains logback dependencies and logging configuration.  
 
-    tar xvfz maven-color-logback-1.2-bundle.tar.gz -C $M2_HOME
+    tar xvfz maven-color-logback-1.3-bundle.tar.gz -C $M2_HOME
 
 Delete `$M2_HOME/lib/slf4j-simple-1.7.x.jar`.
 
@@ -60,11 +60,11 @@ Delete `$M2_HOME/lib/slf4j-simple-1.7.x.jar`.
 
 ### Log4j 2
 
-Get maven-color-log4j2-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.2/maven-color-log4j2-1.2-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.2/maven-color-log4j2-1.2-bundle.zip).  
+Get maven-color-log4j2-bundle: [tar.gz](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.3/maven-color-log4j2-1.3-bundle.tar.gz) or [zip](http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-log4j2/1.3/maven-color-log4j2-1.3-bundle.zip).  
 
 Extract it in your `$M2_HOME` folder. It contains logback dependencies and logging configuration.  
 
-    tar xvfz maven-color-log4j2-1.2-bundle.tar.gz -C $M2_HOME
+    tar xvfz maven-color-log4j2-1.3-bundle.tar.gz -C $M2_HOME
 
 Delete `$M2_HOME/lib/slf4j-simple-1.7.x.jar`.
 
