@@ -1,6 +1,7 @@
 <configuration>
 
     <define name="withJansi" class="com.github.jcgay.maven.color.logback.WithJansiResolver" />
+    <define name="activation" class="com.github.jcgay.maven.color.logback.ColorActivationResolver" />
 
     <conversionRule conversionWord="mavenHighlight"
                     converterClass="com.github.jcgay.maven.color.logback.MavenHighlightConverter" />
@@ -8,21 +9,20 @@
     <conversionRule conversionWord="mavenMsg"
                     converterClass="com.github.jcgay.maven.color.logback.MavenMessageConverter" />
 
-    <appender name="STDOUT" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
+    <appender name="STDOUT-true" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
         <useJansi>${withJansi}</useJansi>
         <encoder>
-            <if condition='"false".equals(property("maven.color"))'>
-                <then>
-                    <pattern>[%replace(%level){'WARN','WARNING'}] %msg%n%rEx</pattern>
-                </then>
-                <else>
-                    <pattern>%mavenHighlight(%mavenMsg%n%rEx)</pattern>
-                </else>
-            </if>
+            <pattern>%mavenHighlight(%mavenMsg%n%rEx)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT-false" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
+        <encoder>
+            <pattern>[%replace(%level){'WARN','WARNING'}] %msg%n%rEx</pattern>
         </encoder>
     </appender>
 
     <root level="${maven.logging.root.level:-INFO}">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT-${activation}" />
     </root>
 </configuration>

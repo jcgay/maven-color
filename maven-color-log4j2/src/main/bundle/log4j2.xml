@@ -2,7 +2,6 @@
 <configuration packages="com.github.jcgay.maven.color.log4j2">
     <properties>
         <property name="maven.logging.root.level">INFO</property>
-        <property name="maven.color">true</property>
     </properties>
     <appenders>
         <Console name="maven-color-true" target="SYSTEM_OUT">
@@ -14,7 +13,7 @@
     </appenders>
     <loggers>
         <root level="${sys:maven.logging.root.level}">
-            <appender-ref ref="maven-color-${sys:maven.color}"/>
+            <appender-ref ref="maven-color-${mc:maven.color}"/>
         </root>
     </loggers>
 </configuration>
