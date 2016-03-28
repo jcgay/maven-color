@@ -1,3 +1,8 @@
+#1.4
+***
+
+- Disable colors for dumb terminal ([65b7aec](http://github.com/jcgay/maven-color/commit/65b7aeced35b39f6236ac931beb3bddf3c6d4cc1))
+
 #1.3
 ***
 
