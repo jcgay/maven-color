@@ -10,7 +10,7 @@
 
     <groupId>com.github.jcgay.maven.color</groupId>
     <artifactId>maven-color</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -23,7 +23,7 @@
         <url>https://github.com/jcgay/maven-color.git</url>
         <connection>scm:git:git://github.com/jcgay/maven-color.git</connection>
         <developerConnection>scm:git:git@github.com:jcgay/maven-color.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.4</tag>
     </scm>
 
     <distributionManagement>
