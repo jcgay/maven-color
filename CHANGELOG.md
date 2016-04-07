@@ -1,3 +1,8 @@
+#1.4.1
+***
+
+- Revert Logback to v1.1.3 ([03ebecb](http://github.com/jcgay/maven-color/commit/03ebecb7bdc8a9ab696612821758e39065b2c02d))
+
 #1.4
 ***
 
