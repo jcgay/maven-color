@@ -8,16 +8,12 @@
         <version>1.6.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>maven-color-log4j2</artifactId>
+    <artifactId>maven-color-gossip</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
+            <groupId>com.planet57.gossip</groupId>
+            <artifactId>gossip-slf4j</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

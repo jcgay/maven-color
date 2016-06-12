@@ -8,14 +8,20 @@ import java.io.IOException;
 
 public class ColorConfiguration {
 
+    private static final File MVN_USER_HOME = new File(System.getProperty("user.home") + "/.m2");
+
     private ColorConfiguration() {
     }
 
     public static Colorizer read() {
-        return read(new File(System.getProperty("user.home") + "/.m2"));
+        return read(MVN_USER_HOME, new DefaultColorization());
     }
 
-    public static Colorizer read(File root) {
+    public static Colorizer read(Colorizer defaultColorizer) {
+        return read(MVN_USER_HOME, defaultColorizer);
+    }
+
+    public static Colorizer read(File root, Colorizer defaultColorizer) {
         File[] configurations = root.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File directory, String name) {
@@ -40,6 +46,6 @@ public class ColorConfiguration {
             }
         }
 
-        return new DefaultColorization();
+        return defaultColorizer;
     }
 }
