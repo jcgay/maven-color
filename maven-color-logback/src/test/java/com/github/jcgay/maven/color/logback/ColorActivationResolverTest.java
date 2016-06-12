@@ -34,6 +34,7 @@ public class ColorActivationResolverTest {
     @Test
     public void return_false_when_env_term_is_dumb() {
         env.set("TERM", "dumb");
+        env.set("MAVEN_CMD_LINE_ARGS", "");
 
         assertThat(mc.getPropertyValue()).isEqualTo("false");
     }
@@ -42,12 +43,32 @@ public class ColorActivationResolverTest {
     public void return_maven_color_property_first() {
         System.setProperty("maven.color", "true");
         env.set("TERM", "dumb");
+        env.set("MAVEN_CMD_LINE_ARGS", "test -B");
 
         assertThat(mc.getPropertyValue()).isEqualTo("true");
     }
 
     @Test
     public void return_true_by_default() {
+        env.set("MAVEN_CMD_LINE_ARGS", "");
+        env.set("TERM", "xterm");
+
         assertThat(mc.getPropertyValue()).isEqualTo("true");
+    }
+
+    @Test
+    public void return_false_when_batch_mode_is_activated_with_short_opt() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test -B");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.getPropertyValue()).isEqualTo("false");
+    }
+
+    @Test
+    public void return_false_when_batch_mode_is_activated_with_long_opt() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test --batch-mode");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.getPropertyValue()).isEqualTo("false");
     }
 }
