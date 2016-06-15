@@ -21,6 +21,11 @@ public class DefaultColorConfiguration implements ConfigurableColor {
     }
 
     @Override
+    public Ansi onPluginExecutionModuleName() {
+        return ansi().fgBright(CYAN).bold();
+    }
+
+    @Override
     public Ansi onSkipped() {
         return ansi().fgBright(YELLOW).bold();
     }

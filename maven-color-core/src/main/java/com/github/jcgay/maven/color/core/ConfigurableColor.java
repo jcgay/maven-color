@@ -18,7 +18,7 @@ public interface ConfigurableColor {
     Ansi onModuleHeader();
 
     /**
-     * Represent a plugin execution header
+     * Represent a plugin execution statement
      *
      * <pre>
      * --- maven-clean-plugin:2.6.1:clean (default-clean) @ maven-color-core ---
@@ -27,6 +27,17 @@ public interface ConfigurableColor {
      * @return an {@link Ansi} instance with custom style
      */
     Ansi onPluginExecution();
+
+    /**
+     * Represent the module name in a plugin execution statement
+     *
+     * <pre>
+     * --- maven-clean-plugin:2.6.1:clean (default-clean) @ maven-color-core ---
+     * </pre>
+     *
+     * @return an {@link Ansi} instance with custom style
+     */
+    Ansi onPluginExecutionModuleName();
 
     /**
      * The text {@code SKIPPED} shown in Reactor Summary

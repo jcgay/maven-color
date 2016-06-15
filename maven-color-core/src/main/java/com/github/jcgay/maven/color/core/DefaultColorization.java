@@ -1,5 +1,8 @@
 package com.github.jcgay.maven.color.core;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static com.github.jcgay.maven.color.core.DefaultColorization.Message.BUILD_FAILURE;
 import static com.github.jcgay.maven.color.core.DefaultColorization.Message.BUILD_SUCCESS;
 import static com.github.jcgay.maven.color.core.DefaultColorization.Message.FAILURE;
@@ -8,6 +11,8 @@ import static com.github.jcgay.maven.color.core.DefaultColorization.Message.SUCC
 import static java.lang.Character.isDigit;
 
 public class DefaultColorization implements Colorizer {
+
+    private static final Pattern PLUGIN_EXECUTION = Pattern.compile("(--- .+ @ )(.+)( ---)");
 
     private final ConfigurableColor configuration;
 
@@ -49,8 +54,11 @@ public class DefaultColorization implements Colorizer {
         if (message.contains(SKIPPED)) {
             return message.replace(SKIPPED, configuration.onSkipped().a(SKIPPED).reset().toString());
         }
-        if (isPluginExecution(message)) {
-            return configuration.onPluginExecution().a(message).reset().toString();
+        Matcher matcher = PLUGIN_EXECUTION.matcher(message);
+        if (matcher.matches()) {
+            return configuration.onPluginExecution().a(matcher.group(1)).reset().toString()
+                + configuration.onPluginExecutionModuleName().a(matcher.group(2)).reset().toString()
+                + configuration.onPluginExecution().a(matcher.group(3)).reset().toString();
         }
         if (isModuleHeader(message)) {
             return configuration.onModuleHeader().a(message).reset().toString();
@@ -67,7 +75,4 @@ public class DefaultColorization implements Colorizer {
         return message.charAt(message.length() - 1);
     }
 
-    private static boolean isPluginExecution(String message) {
-        return message.startsWith("--- ") && message.endsWith(" ---");
-    }
 }

@@ -30,6 +30,11 @@ public abstract class CustomColorization implements Colorizer, ConfigurableColor
     }
 
     @Override
+    public Ansi onPluginExecutionModuleName() {
+        return defaultColorConfiguration.onPluginExecutionModuleName();
+    }
+
+    @Override
     public Ansi onSkipped() {
         return defaultColorConfiguration.onSkipped();
     }
