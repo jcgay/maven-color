@@ -10,7 +10,7 @@
 
     <groupId>com.github.jcgay.maven.color</groupId>
     <artifactId>maven-color</artifactId>
-    <version>1.4.2-SNAPSHOT</version>
+    <version>1.5.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
