@@ -1,3 +1,10 @@
+#1.5.0
+***
+
+- Disable coloring when logging output to file ([1b471ac](http://github.com/jcgay/maven-color/commit/1b471ac5c966bd1168fbbcf42b6454a079070ce8))
+- Display module name for plugin execution in Cyan ([cbd5642](http://github.com/jcgay/maven-color/commit/cbd5642c3ea5293292833fb204158368aa19ce15))
+- Disable coloring in batch mode ([e9697d5](http://github.com/jcgay/maven-color/commit/e9697d5988df2b924d43d3c3c152269e0c819708))
+
 #1.4.1
 ***
 
