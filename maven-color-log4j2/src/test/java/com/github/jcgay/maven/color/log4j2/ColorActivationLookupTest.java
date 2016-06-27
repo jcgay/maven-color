@@ -43,7 +43,7 @@ public class ColorActivationLookupTest {
     public void return_maven_color_property_first() {
         System.setProperty("maven.color", "true");
         env.set("TERM", "dumb");
-        env.set("MAVEN_CMD_LINE_ARGS", "test -B");
+        env.set("MAVEN_CMD_LINE_ARGS", "test -B -l test.log");
 
         assertThat(mc.lookup("maven.color")).isEqualTo("true");
     }
@@ -72,6 +72,22 @@ public class ColorActivationLookupTest {
     @Test
     public void return_false_when_batch_mode_is_activated_with_long_opt() {
         env.set("MAVEN_CMD_LINE_ARGS", "test --batch-mode");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.lookup("maven.color")).isEqualTo("false");
+    }
+
+    @Test
+    public void return_false_when_log_file_is_activated_with_short_opt() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test -l test.log");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.lookup("maven.color")).isEqualTo("false");
+    }
+
+    @Test
+    public void return_false_when_log_file_is_activated_with_long_opt() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test --log-file test.log");
         env.set("TERM", "xterm");
 
         assertThat(mc.lookup("maven.color")).isEqualTo("false");

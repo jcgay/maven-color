@@ -8,7 +8,7 @@ public class ColorActivation {
             return Boolean.valueOf(color);
         }
 
-        return !isBatchMode() && !isDumbTerminal();
+        return !isBatchMode() && !isLogFile() && !isDumbTerminal();
     }
 
     private static boolean isDumbTerminal() {
@@ -25,5 +25,10 @@ public class ColorActivation {
     private static boolean isBatchMode() {
         String args = System.getenv("MAVEN_CMD_LINE_ARGS");
         return args != null && (args.contains("-B") || args.contains("--batch-mode"));
+    }
+
+    private static boolean isLogFile() {
+        String args = System.getenv("MAVEN_CMD_LINE_ARGS");
+        return args != null && (args.contains("-l") || args.contains("--log-file"));
     }
 }
