@@ -2,7 +2,7 @@
 
 A multi-OS colorized Maven console.
 
-[![asciicast](https://asciinema.org/a/20053.png)](https://asciinema.org/a/20053?autoplay=1)
+[![asciicast](https://asciinema.org/a/51007.png)](https://asciinema.org/a/51007?autoplay=1)
 
 #What's new ?
 
@@ -29,7 +29,7 @@ You'll find known problem solutions and how to customize colors.
 
     mvn -B release:prepare release:perform
 
-## Test with Docker
+## Testing with Docker
 
 ### Log4j2
 
