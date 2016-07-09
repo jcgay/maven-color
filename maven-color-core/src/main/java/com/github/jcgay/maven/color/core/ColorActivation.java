@@ -1,5 +1,11 @@
 package com.github.jcgay.maven.color.core;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptySet;
+
 public class ColorActivation {
 
     public static boolean isActivated() {
@@ -8,7 +14,16 @@ public class ColorActivation {
             return Boolean.valueOf(color);
         }
 
-        return !isBatchMode() && !isLogFile() && !isDumbTerminal();
+        Set<String> args = split(System.getenv("MAVEN_CMD_LINE_ARGS"));
+        return !isBatchMode(args) && !isLogFile(args) && !isDumbTerminal();
+    }
+
+    private static Set<String> split(String arguments) {
+        if (arguments == null || arguments.isEmpty()) {
+            return emptySet();
+        }
+
+        return new LinkedHashSet<String>(asList(arguments.split(" |=")));
     }
 
     private static boolean isDumbTerminal() {
@@ -22,13 +37,11 @@ public class ColorActivation {
     *     MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $@"
     *     export MAVEN_CMD_LINE_ARGS
     */
-    private static boolean isBatchMode() {
-        String args = System.getenv("MAVEN_CMD_LINE_ARGS");
-        return args != null && (args.contains("-B") || args.contains("--batch-mode"));
+    private static boolean isBatchMode(Set<String> args) {
+        return args.contains("-B") || args.contains("--batch-mode");
     }
 
-    private static boolean isLogFile() {
-        String args = System.getenv("MAVEN_CMD_LINE_ARGS");
-        return args != null && (args.contains("-l") || args.contains("--log-file"));
+    private static boolean isLogFile(Set<String> args) {
+        return args.contains("-l") || args.contains("--log-file");
     }
 }

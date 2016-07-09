@@ -86,10 +86,33 @@ public class ColorActivationLookupTest {
     }
 
     @Test
+    public void return_false_when_log_file_is_activated_with_short_opt_and_equal_delimiter() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test -l=test.log");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.lookup("maven.color")).isEqualTo("false");
+    }
+
+    @Test
     public void return_false_when_log_file_is_activated_with_long_opt() {
         env.set("MAVEN_CMD_LINE_ARGS", "test --log-file test.log");
         env.set("TERM", "xterm");
 
         assertThat(mc.lookup("maven.color")).isEqualTo("false");
+    }
+
+    @Test
+    public void return_false_when_log_file_is_activated_with_long_opt_and_equal_delimiter() {
+        env.set("MAVEN_CMD_LINE_ARGS", "test --log-file=test.log");
+        env.set("TERM", "xterm");
+
+        assertThat(mc.lookup("maven.color")).isEqualTo("false");
+    }
+
+    @Test
+    public void return_true_when_arguments_could_have_been_misinterpreted_as_log_file_option() {
+        env.set("MAVEN_CMD_LINE_ARGS", "dependency:tree -Dincludes=\"commons-logging\"");
+
+        assertThat(mc.lookup("maven.color")).isEqualTo("true");
     }
 }
