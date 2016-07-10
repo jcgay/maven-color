@@ -19,7 +19,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb|
      # Don't boot with headless mode
-     vb.gui = true
+     vb.gui = false
+     vb.linked_clone = true
+     vb.memory = 4096
+     vb.cpus = 2
   end
 
   config.vm.provision :shell, :path => "setup-chocolatey.cmd"
