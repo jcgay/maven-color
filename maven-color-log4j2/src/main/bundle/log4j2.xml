@@ -5,7 +5,7 @@
     </properties>
     <appenders>
         <Console name="maven-color-true" target="SYSTEM_OUT">
-            <PatternLayout pattern="%highlight{%mavenMsg%n%rEx}{FATAL=red, ERROR=red, WARN=yellow, INFO=white, DEBUG=white, TRACE=white}"/>
+            <PatternLayout pattern="%highlight{%mavenLevel{WARN=WARNING}%mavenMsg%n%rEx}{FATAL=red, ERROR=red, WARN=yellow, INFO=white, DEBUG=white, TRACE=white}"/>
         </Console>
         <Console name="maven-color-false" target="SYSTEM_OUT">
             <PatternLayout pattern="[%p{WARN=WARNING}] %msg%n%rEx"/>

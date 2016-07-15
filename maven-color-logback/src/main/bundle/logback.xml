@@ -9,10 +9,13 @@
     <conversionRule conversionWord="mavenMsg"
                     converterClass="com.github.jcgay.maven.color.logback.MavenMessageConverter" />
 
+    <conversionRule conversionWord="mavenLevel"
+                    converterClass="com.github.jcgay.maven.color.logback.MavenLevelConverter" />
+
     <appender name="STDOUT-true" class="com.github.jcgay.maven.color.logback.MavenColorConsoleAppender">
         <useJansi>${withJansi}</useJansi>
         <encoder>
-            <pattern>%mavenHighlight(%mavenMsg%n%rEx)</pattern>
+            <pattern>%mavenHighlight(%replace(%mavenLevel){'WARN','WARNING'}%mavenMsg%n%rEx)</pattern>
         </encoder>
     </appender>
 
