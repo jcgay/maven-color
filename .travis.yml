@@ -1,8 +1,12 @@
 sudo: false
 language: java
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk6
+before_install:
+  - jdk_switcher use openjdk6
+  - sed -i "s|\[JDK6\]|$JAVA_HOME|g" etc/toolchains.xml
+  - jdk_switcher use oraclejdk8
+install:
+  - mvn install -DskipTests=true -B -V -t etc/toolchains.xml
+script:
+  - mvn test -B -t etc/toolchains.xml
 after_success:
-  - mvn clean verify coveralls:report -Prun-coverage
+  - mvn clean verify coveralls:report -Prun-coverage -t etc/toolchains.xml

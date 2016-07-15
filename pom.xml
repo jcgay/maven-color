@@ -186,28 +186,5 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>Travis</id>
-            <activation>
-                <!-- https://github.com/travis-ci/travis-ci/issues/2727 -->
-                <!-- http://docs.travis-ci.com/user/ci-environment/#Environment-variables -->
-                <property>
-                    <name>env.TRAVIS</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-toolchains-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>none</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
 </project>
