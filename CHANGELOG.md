@@ -1,3 +1,11 @@
+#1.6.0
+***
+
+- Use maven toolchain when building with Travis CI ([9704258](http://github.com/jcgay/maven-color/commit/970425830fab681170dc527d1a44d019645f0581))
+- Make log level display configurable ([e996927](http://github.com/jcgay/maven-color/commit/e996927d7751586bbcac6684cd7bb177719d81f4))
+- Upgrade Vagrant configuration for Windows box ([3e1c159](http://github.com/jcgay/maven-color/commit/3e1c15976404d3446642120752196381820b09ce))
+- Do not disable coloring when arguments contains -l ([a3caebf](http://github.com/jcgay/maven-color/commit/a3caebfb30740e806dc991353b981f907521cfb2))
+
 #1.5.0
 ***
 
