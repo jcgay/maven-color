@@ -31,20 +31,6 @@ You'll find known problem solutions and how to customize colors.
 
 ## Testing with Docker
 
-### Log4j2
-
-    docker build -f Dockerfile-log4j2 -t jcgay/maven-color-log4j2 .
-    docker run -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-log4j2 mvn clean verify
-    docker run -e MAVEN_OPTS="$MAVEN_OPTS -Dmaven.color=false" -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-log4j2 mvn clean verify
-
-### Logback
-    
-    docker build -f Dockerfile-logback -t jcgay/maven-color-logback .
-    docker run -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-logback mvn clean verify
-    docker run -e MAVEN_OPTS="$MAVEN_OPTS -Dmaven.color=false" -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color-logback mvn clean verify
-    
-### Gossip
-
     docker build . -t jcgay/maven-color
     docker run -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color mvn clean verify
     docker run -e MAVEN_OPTS="$MAVEN_OPTS -Dmaven.color=false" -it --rm -v /Users/jcgay/.m2:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven jcgay/maven-color mvn clean verify

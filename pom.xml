@@ -15,7 +15,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <log4j.version>2.0-beta8</log4j.version>
         <slf4j.version>1.7.5</slf4j.version>
         <maven.version>3.1.0</maven.version>
     </properties>
@@ -48,11 +47,6 @@
                 <version>1.13</version>
             </dependency>
             <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.1.3</version>
-            </dependency>
-            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
@@ -66,22 +60,6 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j.version}</version>
-                <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.groovy</groupId>
@@ -174,9 +152,7 @@
     </build>
 
     <modules>
-        <module>maven-color-logback</module>
         <module>maven-color-core</module>
-        <module>maven-color-log4j2</module>
         <module>maven-color-gossip</module>
     </modules>
 

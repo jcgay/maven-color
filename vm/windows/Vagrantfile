@@ -13,8 +13,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.communicator = "winrm"
 
   # Application binaries we want to test
-  config.vm.synced_folder "../../maven-color-logback/target", "/logback"
-  config.vm.synced_folder "../../maven-color-log4j2/target", "/log4j2"
   config.vm.synced_folder "../..", "/maven-color"
 
   config.vm.provider "virtualbox" do |vb|

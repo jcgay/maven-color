@@ -8,7 +8,6 @@ You will need [`vagrant`](https://www.vagrantup.com) to manage the environment.
     
 will start a VM in GUI mode.  
 
-The `logback` and `log4j2` packages are accessible from a mount at `C:\logback` and `C:\log4j2`.  
 `maven-color` is mount at `C:\maven-color`.  
 
 ## Construction
