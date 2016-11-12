@@ -1,5 +1,9 @@
 sudo: false
 language: java
+addons:
+  sonarqube:
+    token:
+      secure: "LzgaDK3Jw49v8jDdR6bnb+F9m7mscSaS5KiZEs7pxAzWRgPYVjc3eBipDaMzHYQvUMprTnh1gPL3k45m7CdH5gUN1JeGQxaD4F/0oIVHOlUDDACUSlzpmXdcEcFmtQjo9DXNWWr4e0dNeHC/zk+4edu+dRQtVSDBk5zWXSmrEoQ"
 before_install:
   - jdk_switcher use openjdk6
   - sed -i "s|\[JDK6\]|$JAVA_HOME|g" etc/toolchains.xml
@@ -7,6 +11,10 @@ before_install:
 install:
   - mvn install -DskipTests=true -B -V -t etc/toolchains.xml
 script:
-  - mvn test -B -t etc/toolchains.xml
+  - mvn package sonar:sonar -Prun-coverage -B -t etc/toolchains.xml
 after_success:
-  - mvn clean verify coveralls:report -Prun-coverage -t etc/toolchains.xml
+  - mvn install coveralls:report -Prun-coverage -t etc/toolchains.xml
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
