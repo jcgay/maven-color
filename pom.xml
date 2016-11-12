@@ -17,6 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j.version>2.0-beta8</log4j.version>
         <slf4j.version>1.7.5</slf4j.version>
+        <maven.version>3.1.0</maven.version>
     </properties>
 
     <scm>
@@ -95,7 +96,12 @@
             <dependency>
                 <groupId>org.apache.maven</groupId>
                 <artifactId>maven-artifact</artifactId>
-                <version>3.1.0</version>
+                <version>${maven.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-embedder</artifactId>
+                <version>${maven.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,5 +1,6 @@
 package com.github.jcgay.maven.color.core;
 
+import com.github.jcgay.maven.color.core.version.CurrentMavenVersion;
 import groovy.lang.GroovyClassLoader;
 
 import java.io.File;
@@ -14,14 +15,10 @@ public class ColorConfiguration {
     }
 
     public static Colorizer read() {
-        return read(MVN_USER_HOME, new DefaultColorization());
+        return read(MVN_USER_HOME, CurrentMavenVersion.read());
     }
 
-    public static Colorizer read(Colorizer defaultColorizer) {
-        return read(MVN_USER_HOME, defaultColorizer);
-    }
-
-    public static Colorizer read(File root, Colorizer defaultColorizer) {
+    public static Colorizer read(File root, CurrentMavenVersion currentMavenVersion) {
         File[] configurations = root.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File directory, String name) {
@@ -46,6 +43,6 @@ public class ColorConfiguration {
             }
         }
 
-        return defaultColorizer;
+        return currentMavenVersion.hasBuiltInColor() ? new KeepMavenDefaultColor() : new DefaultColorization();
     }
 }

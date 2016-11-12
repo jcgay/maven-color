@@ -1,4 +1,4 @@
-package com.github.jcgay.maven.color.gossip;
+package com.github.jcgay.maven.color.core;
 
 import com.github.jcgay.maven.color.core.Colorizer;
 

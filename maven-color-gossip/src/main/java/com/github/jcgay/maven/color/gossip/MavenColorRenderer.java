@@ -3,6 +3,7 @@ package com.github.jcgay.maven.color.gossip;
 import com.github.jcgay.maven.color.core.ColorActivation;
 import com.github.jcgay.maven.color.core.ColorConfiguration;
 import com.github.jcgay.maven.color.core.Colorizer;
+import com.github.jcgay.maven.color.core.KeepMavenDefaultColor;
 import com.github.jcgay.maven.color.core.LogLevelActivation;
 import com.planet57.gossip.Event;
 import com.planet57.gossip.render.PatternRenderer;
@@ -38,7 +39,7 @@ public class MavenColorRenderer extends PatternRenderer {
         super(pattern);
         this.isActivated = isActivated;
         if (isActivated) {
-            colorizer = ColorConfiguration.read(new KeepMavenDefaultColor());
+            colorizer = ColorConfiguration.read();
         } else {
             colorizer = new KeepMavenDefaultColor();
         }
