@@ -1,3 +1,10 @@
+#2.0.0-beta
+***
+
+- Drop support of Log4j 2 and Logback providers ([7bc2718](http://github.com/jcgay//commit/7bc27188c2e9fe40bd9ebf2fd98caa034cb95233))
+- Can use gossip provider with any Maven version >= 3.1 ([cc6e804](http://github.com/jcgay//commit/cc6e804a8fdc7d26ab567fbdf26d90a697f7b764))
+- Support SLF4J Gossip Provider (Maven 3.5.0) ([fb22ab0](http://github.com/jcgay//commit/fb22ab02fd0b9a13333718541b397ed41a0a0881))
+
 #1.6.0
 ***
 
