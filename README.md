@@ -1,18 +1,18 @@
-#Maven Color
+# Maven Color
 
 A multi-OS colorized Maven console.
 
 [![asciicast](https://asciinema.org/a/51007.png)](https://asciinema.org/a/51007?autoplay=1)
 
-#What's new ?
+# What's new ?
 
 See [CHANGELOG](https://github.com/jcgay/maven-color/blob/master/CHANGELOG.md) for latest changes.
 
-#Installation
+# Installation
 
 Follow instructions [here](https://github.com/jcgay/maven-color/wiki/Installation)
 
-#Documentation
+# Documentation
 
 Visit the [wiki](https://github.com/jcgay/maven-color/wiki).  
 You'll find known problem solutions and how to customize colors.
