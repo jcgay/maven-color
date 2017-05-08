@@ -8,6 +8,10 @@ import static java.util.Collections.emptySet;
 
 public class ColorActivation {
 
+    private ColorActivation() {
+        throw new IllegalStateException("I'm hidden!");
+    }
+
     public static boolean isActivated() {
         String color = System.getProperty("maven.color");
         if (color != null) {

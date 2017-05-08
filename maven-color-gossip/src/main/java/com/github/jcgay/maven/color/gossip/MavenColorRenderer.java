@@ -18,7 +18,7 @@ import static org.fusesource.jansi.Ansi.Color.YELLOW;
 
 public class MavenColorRenderer extends PatternRenderer {
 
-    private static String MC_PATTERN = "%l%m%n%x";
+    private static final String MC_PATTERN = "%l%m%n%x";
 
     private final Colorizer colorizer;
     private final boolean isActivated;
@@ -78,16 +78,14 @@ public class MavenColorRenderer extends PatternRenderer {
         }
 
         if (LogLevelActivation.isShown()) {
-            switch (event.getLevel()) {
-                case WARN:
-                    buff.append(ansi().fgBright(YELLOW).bold().a("[WARNING]").reset())
-                        .append(" ");
-                    break;
-                default:
-                    buff.append("[");
-                    super.renderLevel(event, buff);
-                    buff.append("] ");
-                    break;
+            if (event.getLevel() == WARN) {
+                buff.append(ansi().fgBright(YELLOW).bold().a("[WARNING]").reset())
+                    .append(" ");
+
+            } else {
+                buff.append("[");
+                super.renderLevel(event, buff);
+                buff.append("] ");
             }
         }
     }

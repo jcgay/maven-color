@@ -12,6 +12,7 @@ public class ColorConfiguration {
     private static final File MVN_USER_HOME = new File(System.getProperty("user.home") + "/.m2");
 
     private ColorConfiguration() {
+        throw new IllegalStateException("I'm hidden!");
     }
 
     public static Colorizer read() {
@@ -33,13 +34,13 @@ public class ColorConfiguration {
                 if (customColorization instanceof Colorizer) {
                     return (Colorizer) customColorization;
                 }
-                throw new RuntimeException("maven.color must extends com.github.jcgay.maven.color.core.CustomColorization");
+                throw new MavenColorException("maven.color must extends com.github.jcgay.maven.color.core.CustomColorization");
             } catch (IOException e) {
-                throw new RuntimeException("Error while reading: " + configurations[0], e);
+                throw new MavenColorException("Error while reading: " + configurations[0], e);
             } catch (InstantiationException e) {
-                throw new RuntimeException("Cannot instantiate custom colorization from: " + configurations[0], e);
+                throw new MavenColorException("Cannot instantiate custom colorization from: " + configurations[0], e);
             } catch (IllegalAccessException e) {
-                throw new RuntimeException("Cannot access custom colorization from: " + configurations[0], e);
+                throw new MavenColorException("Cannot access custom colorization from: " + configurations[0], e);
             }
         }
 

@@ -26,14 +26,14 @@ public class DefaultColorization implements Colorizer {
     private final ConfigurableColor configuration;
     private final boolean stripAnsiCodes;
 
-    public interface Message {
-        String SUCCESS = "SUCCESS";
-        String FAILURE = "FAILURE";
-        String SKIPPED = "SKIPPED";
-        String BUILD_SUCCESS = "BUILD " + SUCCESS;
-        String BUILD_FAILURE = "BUILD " + FAILURE;
-        String BUILDING = "Building ";
-        String SNAPSHOT = "-SNAPSHOT";
+    static final class Message {
+        static final String SUCCESS = "SUCCESS";
+        static final String FAILURE = "FAILURE";
+        static final String SKIPPED = "SKIPPED";
+        static final String BUILD_SUCCESS = "BUILD " + SUCCESS;
+        static final String BUILD_FAILURE = "BUILD " + FAILURE;
+        static final String BUILDING = "Building ";
+        static final String SNAPSHOT = "-SNAPSHOT";
     }
 
     public DefaultColorization() {
