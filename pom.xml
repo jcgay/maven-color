@@ -43,6 +43,11 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>maven-color-gossip</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.fusesource.jansi</groupId>
                 <artifactId>jansi</artifactId>
                 <version>1.13</version>
@@ -155,6 +160,7 @@
     <modules>
         <module>maven-color-core</module>
         <module>maven-color-gossip</module>
+        <module>maven-color-coverage-report</module>
     </modules>
 
     <profiles>
