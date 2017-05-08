@@ -1,6 +1,7 @@
 # Maven Color
 
-A multi-OS colorized Maven console.
+A multi-OS colorized Maven console.  
+Maven has built-in color since version 3.5.0, you should stick with it now 😍
 
 [![asciicast](https://asciinema.org/a/51007.png)](https://asciinema.org/a/51007?autoplay=1)
 
