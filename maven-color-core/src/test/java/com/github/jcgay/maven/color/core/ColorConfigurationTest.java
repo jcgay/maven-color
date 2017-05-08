@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
+import static org.fusesource.jansi.Ansi.ansi;
 import static org.mockito.Mockito.when;
 
 public class ColorConfigurationTest {
@@ -49,7 +50,7 @@ public class ColorConfigurationTest {
         Colorizer result = ColorConfiguration.read(new File(getClass().getClassLoader().getResource("").toURI()), CurrentMavenVersion.read());
 
         assertThat(result.getClass().getSimpleName()).isEqualTo("MyColor");
-        assertThat(result.colorize("SUCCESS")).isEqualTo(CustomAnsi.ansi().bold().a("SUCCESS").reset().toString());
+        assertThat(result.colorize("SUCCESS")).isEqualTo(ansi().bold().a("SUCCESS").reset().toString());
     }
 
     @Test

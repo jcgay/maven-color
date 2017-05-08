@@ -7,13 +7,13 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.ClearSystemProperties;
 import org.slf4j.Logger;
 
-import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 import static com.planet57.gossip.Level.ERROR;
 import static com.planet57.gossip.Level.INFO;
 import static com.planet57.gossip.Level.WARN;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
+import static org.fusesource.jansi.Ansi.ansi;
 import static org.slf4j.LoggerFactory.getLogger;
 
 public class MavenColorRendererTest {

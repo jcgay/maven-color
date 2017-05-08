@@ -2,11 +2,11 @@ package com.github.jcgay.maven.color.core;
 
 import org.fusesource.jansi.Ansi;
 
-import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 import static org.fusesource.jansi.Ansi.Color.CYAN;
 import static org.fusesource.jansi.Ansi.Color.GREEN;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
+import static org.fusesource.jansi.Ansi.ansi;
 
 public class DefaultColorConfiguration implements ConfigurableColor {
 

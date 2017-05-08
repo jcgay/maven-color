@@ -9,12 +9,12 @@ import com.planet57.gossip.Event;
 import com.planet57.gossip.render.PatternRenderer;
 import org.fusesource.jansi.Ansi;
 
-import static com.github.jcgay.maven.color.core.CustomAnsi.ansi;
 import static com.planet57.gossip.Level.ERROR;
 import static com.planet57.gossip.Level.INFO;
 import static com.planet57.gossip.Level.WARN;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
+import static org.fusesource.jansi.Ansi.ansi;
 
 public class MavenColorRenderer extends PatternRenderer {
 
