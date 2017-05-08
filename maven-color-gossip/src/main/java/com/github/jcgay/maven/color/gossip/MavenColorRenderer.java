@@ -8,6 +8,7 @@ import com.github.jcgay.maven.color.core.LogLevelActivation;
 import com.planet57.gossip.Event;
 import com.planet57.gossip.render.PatternRenderer;
 import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
 
 import static com.planet57.gossip.Level.ERROR;
 import static com.planet57.gossip.Level.INFO;
@@ -39,6 +40,7 @@ public class MavenColorRenderer extends PatternRenderer {
         super(pattern);
         this.isActivated = isActivated;
         if (isActivated) {
+            AnsiConsole.systemInstall();
             colorizer = ColorConfiguration.read();
         } else {
             colorizer = new KeepMavenDefaultColor();
