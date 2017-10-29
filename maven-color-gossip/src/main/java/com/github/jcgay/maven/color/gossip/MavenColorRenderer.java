@@ -5,10 +5,12 @@ import com.github.jcgay.maven.color.core.ColorConfiguration;
 import com.github.jcgay.maven.color.core.Colorizer;
 import com.github.jcgay.maven.color.core.KeepMavenDefaultColor;
 import com.github.jcgay.maven.color.core.LogLevelActivation;
+import com.github.jcgay.maven.color.core.version.Version;
 import com.planet57.gossip.Event;
 import com.planet57.gossip.render.PatternRenderer;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
+import org.slf4j.Logger;
 
 import static com.planet57.gossip.Level.ERROR;
 import static com.planet57.gossip.Level.INFO;
@@ -16,10 +18,12 @@ import static com.planet57.gossip.Level.WARN;
 import static org.fusesource.jansi.Ansi.Color.RED;
 import static org.fusesource.jansi.Ansi.Color.YELLOW;
 import static org.fusesource.jansi.Ansi.ansi;
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class MavenColorRenderer extends PatternRenderer {
 
     private static final String MC_PATTERN = "%l%m%n%x";
+    private static final Logger LOGGER = getLogger(MavenColorRenderer.class);
 
     private final Colorizer colorizer;
     private final boolean isActivated;
@@ -38,6 +42,9 @@ public class MavenColorRenderer extends PatternRenderer {
 
     public MavenColorRenderer(String pattern, boolean isActivated) {
         super(pattern);
+        if (LOGGER.isDebugEnabled()) {
+            System.out.println("Using maven-color v" + Version.current().get() + ".");
+        }
         this.isActivated = isActivated;
         if (isActivated) {
             AnsiConsole.systemInstall();
