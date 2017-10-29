@@ -13,6 +13,9 @@ public class ColorActivationTest {
     public ClearSystemProperties mavenColor = new ClearSystemProperties("maven.color");
 
     @Rule
+    public ClearSystemProperties styleColor = new ClearSystemProperties("style.color");
+
+    @Rule
     public final EnvironmentVariables env = new EnvironmentVariables();
 
     @Test
@@ -32,6 +35,20 @@ public class ColorActivationTest {
     @Test
     public void should_not_be_activated_when_sys_property_maven_color_is_unparsable() {
         System.setProperty("maven.color", "WHATT!?");
+
+        assertThat(ColorActivation.isActivated()).isFalse();
+    }
+
+    @Test
+    public void should_be_activated_when_sys_property_style_color_is_always() {
+        System.setProperty("style.color", "always");
+
+        assertThat(ColorActivation.isActivated()).isTrue();
+    }
+
+    @Test
+    public void should_not_be_activated_when_sys_property_style_color_is_never() {
+        System.setProperty("style.color", "never");
 
         assertThat(ColorActivation.isActivated()).isFalse();
     }
@@ -110,6 +127,7 @@ public class ColorActivationTest {
     @Test
     public void return_maven_color_property_first() {
         System.setProperty("maven.color", "true");
+        System.setProperty("style.color", "false");
         env.set("TERM", "dumb");
         env.set("MAVEN_CMD_LINE_ARGS", "test -B");
 

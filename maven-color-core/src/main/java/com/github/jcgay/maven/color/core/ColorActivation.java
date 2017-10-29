@@ -18,6 +18,14 @@ public class ColorActivation {
             return Boolean.valueOf(color);
         }
 
+        String activation = System.getProperty("style.color");
+        if ("always".equals(activation)) {
+            return true;
+        }
+        if ("never".equals(activation)) {
+            return false;
+        }
+
         Set<String> args = split(System.getenv("MAVEN_CMD_LINE_ARGS"));
         return !isBatchMode(args) && !isLogFile(args) && !isDumbTerminal();
     }
