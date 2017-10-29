@@ -1,3 +1,9 @@
+# 2.1.0
+***
+
+- Log current maven-color version in DEBUG ([f43a0e4](http://github.com/jcgay/maven-color/commit/f43a0e4795672a796a292238c997baed03835e4e))
+- Activate/Deactivate color with style.color property ([b37a7fa](http://github.com/jcgay/maven-color/commit/b37a7fa14407a6cb01b986879252145298d9b536))
+
 # 2.0.0
 ***
 
