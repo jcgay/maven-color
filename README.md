@@ -25,8 +25,7 @@ You'll find known problem solutions and how to customize colors.
 [![Build Status](https://travis-ci.org/jcgay/maven-color.svg?branch=master)](https://travis-ci.org/jcgay/maven-color)
 [![Build status](https://ci.appveyor.com/api/projects/status/y8rn0pew98jbr9j8/branch/master?svg=true)](https://ci.appveyor.com/project/jcgay/maven-color/branch/master)
 [![Coverage Status](https://coveralls.io/repos/jcgay/maven-color/badge.svg?branch=master)](https://coveralls.io/r/jcgay/maven-color?branch=master)
-[![Quality Gate](https://sonarqube.com/api/badges/gate?key=com.github.jcgay.maven.color:maven-color)](https://sonarqube.com/dashboard/index/com.github.jcgay.maven.color:maven-color)
-[![Technical debt ratio](https://sonarqube.com/api/badges/measure?key=com.github.jcgay.maven.color:maven-color&metric=sqale_debt_ratio)](https://sonarqube.com/dashboard/index/com.github.jcgay.maven.color:maven-color)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=com.github.jcgay.maven.color%3Amaven-color&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.github.jcgay.maven.color%3Amaven-color)
 
 ## Release
 
