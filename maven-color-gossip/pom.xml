@@ -38,6 +38,7 @@
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/bundle.xml</descriptor>
+                        <descriptor>src/main/assembly/bundle-without-jansi.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
