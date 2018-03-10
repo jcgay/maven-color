@@ -1,3 +1,9 @@
+# 2.1.1
+***
+
+- Add a package without Jansi ([10acfff](http://github.com/jcgay/maven-color/commit/10acfff3733ff1913042957df1a42abe040c827d))
+- Use Jansi 1.17 ([186113d](http://github.com/jcgay/maven-color/commit/186113de5e254bb9e57e45756070489acfe5e111))
+
 # 2.1.0
 ***
 
