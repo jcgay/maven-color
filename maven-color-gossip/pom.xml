@@ -10,6 +10,10 @@
 
     <artifactId>maven-color-gossip</artifactId>
 
+    <properties>
+        <coveralls.skip>false</coveralls.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.planet57.gossip</groupId>
