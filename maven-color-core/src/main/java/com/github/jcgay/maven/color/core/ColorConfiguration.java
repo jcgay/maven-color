@@ -4,7 +4,6 @@ import com.github.jcgay.maven.color.core.version.CurrentMavenVersion;
 import groovy.lang.GroovyClassLoader;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 
 public class ColorConfiguration {
@@ -20,12 +19,7 @@ public class ColorConfiguration {
     }
 
     public static Colorizer read(File root, CurrentMavenVersion currentMavenVersion) {
-        File[] configurations = root.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File directory, String name) {
-                return "maven.color".equals(name);
-            }
-        });
+        File[] configurations = root.listFiles((directory, name) -> "maven.color".equals(name));
 
         if (configurations != null && configurations.length >= 1) {
             GroovyClassLoader gcl = new GroovyClassLoader();

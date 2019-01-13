@@ -5,7 +5,7 @@
     <parent>
         <groupId>fr.jcgay.maven</groupId>
         <artifactId>jcgay-build-configuration</artifactId>
-        <version>1.15</version>
+        <version>1.16</version>
     </parent>
 
     <groupId>com.github.jcgay.maven.color</groupId>
@@ -15,7 +15,8 @@
     <description>A colorized Maven console</description>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <slf4j.version>1.7.25</slf4j.version>
         <maven.version>3.1.0</maven.version>
         <coveralls.skip>true</coveralls.skip>
@@ -166,9 +167,9 @@
 
     <profiles>
         <profile>
-            <id>build-with-jdk-6</id>
+            <id>build-with-toolchains</id>
             <activation>
-                <jdk>[1.7,)</jdk>
+                <jdk>!1.8</jdk>
             </activation>
             <build>
                 <plugins>
@@ -184,7 +185,7 @@
                         <configuration>
                             <toolchains>
                                 <jdk>
-                                    <version>1.6</version>
+                                    <version>${maven.compiler.target}</version>
                                 </jdk>
                             </toolchains>
                         </configuration>

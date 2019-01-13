@@ -3,9 +3,9 @@ package com.github.jcgay.maven.color.core;
 import org.fusesource.jansi.Ansi;
 
 /**
- * Template to extends when customizing colors. <br />
+ * Template to extends when customizing colors. <br>
  *
- * The default implementation is used when a method is not overridden. <br />
+ * The default implementation is used when a method is not overridden. <br>
  * The {@link Ansi} returned must be created by calling the convenience method
  * {@link #ansi()} in your custom implementation.
  */

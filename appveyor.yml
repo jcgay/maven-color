@@ -3,7 +3,6 @@ skip_tags: true
 clone_depth: 10
 environment:
   matrix:
-    - JAVA_HOME: C:\Program Files\Java\jdk1.7.0
     - JAVA_HOME: C:\Program Files\Java\jdk1.8.0
 install:
   - ps: >-
@@ -16,16 +15,14 @@ install:
       } else {
         Write-Host 'Found Maven cached installation'
       }
-
-      (gc etc\toolchains.xml).replace('[JDK6]', $env:JAVA_HOME) | sc $env:TEMP\toolchains.xml
 # Note: env variables are not correctly updated by choco (setting it manually)
 # Prepend Java entry, remove Ruby entry (C:\Ruby193\bin;) from PATH
   - cmd: SET PATH=C:\tools\apache-maven-3.3.9\bin;%JAVA_HOME%\bin;%PATH:C:\Ruby193\bin;=%
   - cmd: mvn --version
   - cmd: java -version
 build_script:
-  - mvn clean package -B -Dmaven.test.skip=true -t %TEMP%/toolchains.xml
+  - mvn clean package -B -Dmaven.test.skip=true
 test_script:
-  - mvn test -B -t %TEMP%/toolchains.xml
+  - mvn test -B
 cache:
   - C:\tools\apache-maven-3.3.9\

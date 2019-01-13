@@ -35,7 +35,7 @@ public class ColorActivation {
             return emptySet();
         }
 
-        return new LinkedHashSet<String>(asList(arguments.split(" |=")));
+        return new LinkedHashSet<>(asList(arguments.split(" |=")));
     }
 
     private static boolean isDumbTerminal() {

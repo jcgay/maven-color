@@ -3,10 +3,11 @@ package com.github.jcgay.maven.color.core.version;
 import org.slf4j.Logger;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import static org.codehaus.groovy.runtime.DefaultGroovyMethodsSupport.closeQuietly;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.slf4j.LoggerFactory.getLogger;
 
 public class Version {
@@ -25,20 +26,16 @@ public class Version {
     }
 
     public String get() {
-        BufferedReader reader = null;
-        try {
-            InputStream resource = Version.class.getResourceAsStream(source);
-            if (resource == null) {
-                return UNKNOWN_VERSION;
-            }
-            reader = new BufferedReader(new InputStreamReader(resource, "UTF-8"));
+        InputStream resource = Version.class.getResourceAsStream(source);
+        if (resource == null) {
+            return UNKNOWN_VERSION;
+        }
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource, UTF_8))) {
             String version = reader.readLine();
             return version != null ? version : UNKNOWN_VERSION;
-        } catch (Exception e) {
+        } catch (IOException e) {
             LOGGER.warn("Error while trying to read current maven-color version.", e);
             return UNKNOWN_VERSION;
-        } finally {
-            closeQuietly(reader);
         }
     }
 }

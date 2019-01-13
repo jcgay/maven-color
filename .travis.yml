@@ -6,15 +6,13 @@ addons:
     token:
       secure: "LzgaDK3Jw49v8jDdR6bnb+F9m7mscSaS5KiZEs7pxAzWRgPYVjc3eBipDaMzHYQvUMprTnh1gPL3k45m7CdH5gUN1JeGQxaD4F/0oIVHOlUDDACUSlzpmXdcEcFmtQjo9DXNWWr4e0dNeHC/zk+4edu+dRQtVSDBk5zWXSmrEoQ"
 before_install:
-  - jdk_switcher use openjdk6
-  - sed -i "s|\[JDK6\]|$JAVA_HOME|g" etc/toolchains.xml
   - jdk_switcher use oraclejdk8
 install:
-  - mvn install -DskipTests=true -B -V -t etc/toolchains.xml
+  - mvn install -DskipTests=true -B -V
 script:
-  - mvn package sonar:sonar -Prun-coverage -B -t etc/toolchains.xml
+  - mvn package sonar:sonar -Prun-coverage -B
 after_success:
-  - mvn install coveralls:report -Prun-coverage -t etc/toolchains.xml
+  - mvn install coveralls:report -Prun-coverage
 cache:
   directories:
     - '$HOME/.m2/repository'
