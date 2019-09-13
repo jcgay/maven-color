@@ -1,12 +1,11 @@
-sudo: false
 language: java
 addons:
   sonarcloud:
     organization: "jcgay-github"
     token:
       secure: "LzgaDK3Jw49v8jDdR6bnb+F9m7mscSaS5KiZEs7pxAzWRgPYVjc3eBipDaMzHYQvUMprTnh1gPL3k45m7CdH5gUN1JeGQxaD4F/0oIVHOlUDDACUSlzpmXdcEcFmtQjo9DXNWWr4e0dNeHC/zk+4edu+dRQtVSDBk5zWXSmrEoQ"
-before_install:
-  - jdk_switcher use oraclejdk8
+jdk:
+  - openjdk8
 install:
   - mvn install -DskipTests=true -B -V
 script:
