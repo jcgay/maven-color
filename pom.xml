@@ -31,9 +31,9 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray</id>
-            <name>jcgay-maven-maven-color</name>
-            <url>https://api.bintray.com/maven/jcgay/maven/maven-color</url>
+            <id>github</id>
+            <name>GitHub Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/jcgay/maven-color</url>
         </repository>
     </distributionManagement>
 
