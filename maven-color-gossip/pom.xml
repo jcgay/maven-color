@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.jcgay.maven.color</groupId>
+        <groupId>fr.jcgay.maven.color</groupId>
         <artifactId>maven-color</artifactId>
         <version>3.0.1-SNAPSHOT</version>
     </parent>

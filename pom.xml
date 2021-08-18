@@ -8,7 +8,7 @@
         <version>1.18</version>
     </parent>
 
-    <groupId>com.github.jcgay.maven.color</groupId>
+    <groupId>fr.jcgay.maven.color</groupId>
     <artifactId>maven-color</artifactId>
     <version>3.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -28,14 +28,6 @@
         <developerConnection>scm:git:git@github.com:jcgay/maven-color.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/jcgay/maven-color</url>
-        </repository>
-    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
