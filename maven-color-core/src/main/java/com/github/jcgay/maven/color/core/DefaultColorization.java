@@ -1,7 +1,8 @@
 package com.github.jcgay.maven.color.core;
 
 import com.github.jcgay.maven.color.core.version.CurrentMavenVersion;
-import org.fusesource.jansi.AnsiOutputStream;
+import org.fusesource.jansi.AnsiMode;
+import org.fusesource.jansi.io.AnsiOutputStream;
 import org.slf4j.Logger;
 
 import java.io.ByteArrayOutputStream;
@@ -90,7 +91,7 @@ public class DefaultColorization implements Colorizer {
         }
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        AnsiOutputStream writer = new AnsiOutputStream(bos);
+        AnsiOutputStream writer = new AnsiOutputStream(bos, null, AnsiMode.Strip, null, null, null, null, null, null, false);
         try {
             writer.write(message.getBytes());
             return bos.toString();
