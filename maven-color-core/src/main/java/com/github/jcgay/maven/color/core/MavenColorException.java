@@ -10,7 +10,4 @@ public class MavenColorException extends RuntimeException {
         super(s, throwable);
     }
 
-    public MavenColorException(Throwable throwable) {
-        super(throwable);
-    }
 }

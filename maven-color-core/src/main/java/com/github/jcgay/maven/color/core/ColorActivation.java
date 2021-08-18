@@ -15,7 +15,7 @@ public class ColorActivation {
     public static boolean isActivated() {
         String color = System.getProperty("maven.color");
         if (color != null) {
-            return Boolean.valueOf(color);
+            return Boolean.parseBoolean(color);
         }
 
         String activation = System.getProperty("style.color");
@@ -35,7 +35,7 @@ public class ColorActivation {
             return emptySet();
         }
 
-        return new LinkedHashSet<>(asList(arguments.split(" |=")));
+        return new LinkedHashSet<>(asList(arguments.split("[ =]")));
     }
 
     private static boolean isDumbTerminal() {

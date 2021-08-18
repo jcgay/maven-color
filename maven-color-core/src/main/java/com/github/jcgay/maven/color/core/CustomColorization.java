@@ -11,8 +11,8 @@ import org.fusesource.jansi.Ansi;
  */
 public abstract class CustomColorization implements Colorizer, ConfigurableColor {
 
-    private DefaultColorConfiguration defaultColorConfiguration = new DefaultColorConfiguration();
-    private DefaultColorization defaultColor = new DefaultColorization(this);
+    private final DefaultColorConfiguration defaultColorConfiguration = new DefaultColorConfiguration();
+    private final DefaultColorization defaultColor = new DefaultColorization(this);
 
     @Override
     public String colorize(String message) {

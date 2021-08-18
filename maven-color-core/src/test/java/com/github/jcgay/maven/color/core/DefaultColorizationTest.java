@@ -37,7 +37,7 @@ public class DefaultColorizationTest {
     }
 
     @Test
-    public void should_display_bold_plugin_execution_with_cyan_module_name() throws Exception {
+    public void should_display_bold_plugin_execution_with_cyan_module_name() {
         String message = "--- maven-surefire-plugin:2.19.1:test (default-test) @ maven-color-log4j2 ---";
         assertThat(maven310.colorize(message)).isEqualTo(
             ansi()
@@ -83,7 +83,7 @@ public class DefaultColorizationTest {
 
     @Test
     @UseDataProvider("module_header_messages")
-    public void should_display_module_header_in_cyan(String message) throws Exception {
+    public void should_display_module_header_in_cyan(String message) {
         assertThat(maven310.colorize(message))
             .isEqualTo(ansi().fgBright(CYAN).a(message).reset().toString());
         assertThat(maven350.colorize(message))
@@ -91,7 +91,7 @@ public class DefaultColorizationTest {
     }
 
     @Test
-    public void should_not_colorize_message_containing_building_without_being_a_module_header() throws Exception {
+    public void should_not_colorize_message_containing_building_without_being_a_module_header() {
         String message = "Building jar: /Users/jcgay/IdeaProjects/maven-color/maven-color-log4j2/target/maven-color-log4j2-0.2-SNAPSHOT.jar";
         assertThat(maven310.colorize(message)).isEqualTo(message);
         assertThat(maven350.colorize(message)).isEqualTo(message);

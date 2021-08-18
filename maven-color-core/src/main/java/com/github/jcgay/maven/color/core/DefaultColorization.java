@@ -90,22 +90,13 @@ public class DefaultColorization implements Colorizer {
             return message;
         }
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        AnsiOutputStream writer = new AnsiOutputStream(bos, null, AnsiMode.Strip, null, null, null, null, null, null, false);
-        try {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             AnsiOutputStream writer = new AnsiOutputStream(bos, null, AnsiMode.Strip, null, null, null, null, null, null, false)) {
             writer.write(message.getBytes());
             return bos.toString();
         } catch (IOException e) {
             LOGGER.warn("Cannot strip ansi codes from: {}.", message, e);
             return message;
-        } finally {
-            try {
-                bos.close();
-            } catch (IOException ignored) {}
-
-            try {
-                writer.close();
-            } catch (IOException ignored) {}
         }
     }
 

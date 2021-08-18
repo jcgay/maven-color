@@ -63,7 +63,7 @@ public class MavenColorRenderer extends PatternRenderer {
         }
 
         if (event.getLevel() == WARN) {
-            buff.append(colorize(event, YELLOW));
+            buff.append(colorizeInYellow(event));
         } else if (event.getLevel() == INFO) {
             buff.append(colorizer.colorize(event.getMessage()));
         } else {
@@ -99,7 +99,7 @@ public class MavenColorRenderer extends PatternRenderer {
         }
     }
 
-    private static String colorize(Event event, Ansi.Color color) {
-        return ansi().fgBright(color).bold().a(event.getMessage()).reset().toString();
+    private static String colorizeInYellow(Event event) {
+        return ansi().fgBright(Ansi.Color.YELLOW).bold().a(event.getMessage()).reset().toString();
     }
 }
