@@ -18,7 +18,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <slf4j.version>1.7.32</slf4j.version>
-        <maven.version>3.1.0</maven.version>
+        <maven.version>3.8.6</maven.version>
         <coveralls.skip>true</coveralls.skip>
     </properties>
 
